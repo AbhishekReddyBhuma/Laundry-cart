@@ -1,0 +1,11 @@
+POST "http://localhost:808/users/register"
+{
+    "name":"abc",
+    "email":"abc@gmail.com",
+    "phoneNumber":"1223456",
+    "address" : "jharkhand",
+    "state" : "jharkhand",
+    "district":"dhanbad",
+    "pincode":"123654",
+    "password":"123456"
+}
