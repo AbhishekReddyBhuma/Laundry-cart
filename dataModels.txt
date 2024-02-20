@@ -1,0 +1,58 @@
+// User Model
+{
+  "id": "123", // Unique identifier for the user
+  "name": "John Doe", // Full name of the user
+  "email": "john.doe@example.com", // Email address of the user
+  "password": "hashed_password", // Hashed password for security
+  "address": "123 Main St, Anytown, USA", // Address for pickup and delivery
+  "phoneNumber": "1234567890", // Phone number for contact
+  "state":"State"//state of the user,
+  "district":"district",//district of the user,
+  "pinCode":"pin"//pincode of the user,
+}
+
+// Service Model
+{
+  "id": "789", // Unique identifier for the laundry service
+  "name": "Dry Cleaning", // Name of the laundry service
+  "description": "Dry cleaning services for delicate fabrics", // Description of the service
+  "price": 10.00 // Price of the laundry service
+}
+
+// Order Model
+{
+  "id": "456", // Unique identifier for the order
+  "userId": "123", // Identifier of the user who placed the order
+  "status": "Processing", // Status of the order
+  "totalItems":"10",//Total number of items in a single order
+  "totalPrice": 20.00, // Total price of the order
+  "storeLocation":"location"//location of the store
+  "city":"city"//city of the store selected
+  "phoneNumber":"98223321"//phone number of the selected store
+  "cancellation":""//if the order is cancelled
+  "orderDate": "2024-02-19T07:06:00Z", // Date and time when the order was placed
+}
+
+Product Model 
+{
+  "id": "434", // Unique identifier for the product
+  "name": "Shirts", // Name of the laundry product
+  "description": "Type of clothes", // Description of the product
+  "price-list": {
+    washing:10,
+    ironing:10,
+    towel:10,
+    chemical wash:10
+  }
+}
+------------------------------------------------------------------------------------------------------------
+
+// OrderItem Model
+{
+  "id": "012", // Unique identifier for the order item
+  "orderId": "456", // Identifier of the order to which this item belongs
+  "serviceId": "789", // Identifier of the service chosen for this item
+  "quantity": 2, // Quantity of the service ordered
+  "itemDescription": "2 silk shirts", // Description of the items for this service
+  "itemPrice": 20.00 // Total price for this order item
+}

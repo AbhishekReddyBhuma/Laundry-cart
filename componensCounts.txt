@@ -1,0 +1,5 @@
+Past orders page - 1 component//Entire table of past orders with details of each order in a row
+
+Create orders page - 3 components: a: creating the order,
+                                   b: Order summary,
+                                   c: Order success confirmation with Link to go to past orders.
