@@ -29,7 +29,7 @@
   "storeLocation":"location"//location of the store
   "city":"city"//city of the store selected
   "phoneNumber":"98223321"//phone number of the selected store
-  "cancellation":""//if the order is cancelled
+  "cancellation":"false"//if the order is cancelled
   "orderDate": "2024-02-19T07:06:00Z", // Date and time when the order was placed
 }
 
