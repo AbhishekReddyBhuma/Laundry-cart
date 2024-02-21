@@ -1,0 +1,74 @@
+Login flow:
+
+User  Web Browser  Web Server  Database
+  |       |            |          |
+  |------>|            |          |  1. Enter credentials
+  |       |----------->|          |  2. Post login request
+  |       |            |--------->|  3. Query user info
+  |       |            |<---------|  4. Return user info
+  |       |<-----------|          |  5. Send login response
+  |<------|            |          |  6. Display response
+
+
+  register flow:
+
+User  Web Browser  Web Server  Database
+  |       |            |          |
+  |------>|            |          |  1. Enter user details
+  |       |----------->|          |  2. Post register request with user details
+  |       |            |--------->|  3. Query user info- will send registration details to Database
+  |       |            |<---------|  4. Return registration  info either success or fail
+  |       |<-----------|          |  5. Send register response
+  |<------|            |          |  6. Display response
+
+
+  order flow:
+
+User  Web Browser  Web Server  Database
+  |       |            |          |
+  |------>|            |          |  1. Enter order details
+  |       |----------->|          |  2. Post order request- to capture the ordre details to Database
+  |       |            |--------->|  3. create order info
+  |       |            |<---------|  4. Return order status info
+  |       |<-----------|          |  5. Send order confirmation response
+  |<------|            |          |  6. Display response
+
+
+Past-order flow:
+
+User  Web Browser  Web Server  Database
+  |       |            |          |
+  |------>|            |          |  1. on clcking the button of past orders
+  |       |----------->|          |  2. get  past-order request- to capture the past-orders details from Database
+  |       |            |--------->|  3. Query past-orders info
+  |       |            |<---------|  4. Return past-orders  info
+  |       |<-----------|          |  5. send past-order details 
+  |<------|            |          |  6. Display response
+
+
+adding new address flow:
+
+User  Web Browser  Web Server  Database
+  |       |            |          |
+  |------>|            |          |  1. on clcking the button of new address
+  |       |----------->|          |  2. put  new-address request- to capture the new-address details to Database
+  |       |            |--------->|  3. update user details with new address
+  |       |            |<---------|  4. Return update response
+  |       |<-----------|          |  5. send address details 
+  |<------|            |          |  6. Display response
+
+  cancle-order flow:
+
+User  Web Browser  Web Server  Database
+  |       |            |          |
+  |------>|            |          |  1. on clcking the button cancle order
+  |       |----------->|          |  2. put  past-order request- to change the past-orders status to Database
+  |       |            |--------->|  3. Query past-orders status info
+  |       |            |<---------|  4. Return past-orders status  info
+  |       |<-----------|          |  5. send past-order status  details 
+  |<------|            |          |  6. Display response
+
+
+  
+
+

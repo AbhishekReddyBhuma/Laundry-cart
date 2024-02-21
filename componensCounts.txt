@@ -1,3 +1,16 @@
+1 navbar 
+2 footer 
+3 for sign in- 
+4 for register
+5 side bar 
+6 products component 
+7 summary component to create order 
+8 order confirmation ----component after clcking on confim button will rander
+9 past orders component
+10 order details component- when someone click on view button this will be rander
+11 alert component to cancle order
+
+
 Past orders page - 1 component//Entire table of past orders with details of each order in a row
 
 Create orders page - 3 components: a: creating the order,
