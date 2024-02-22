@@ -1,0 +1,23 @@
+.home-page {
+    top: 81px;
+    height: 769px;
+    display: flex;
+    position: absolute;
+    width: 1440px;
+}
+
+.signIn-form {
+    display: flex;
+    height: 769px;
+    width:710px;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-name {
+    width: 730px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}

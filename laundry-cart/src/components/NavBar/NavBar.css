@@ -1,0 +1,58 @@
+.nav-container {
+    top: 0px;
+    left: 0px;
+    width: 1440px;
+    height: 80px;
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 2px 48px #0000000F;
+    opacity: 1;
+    display: flex;
+}
+
+.logo {
+    top: 30px;
+    left: 119px;
+    width: 108px;
+    height: 27px;
+    text-align: left;
+    font: normal normal 900 20px/27px Avenir;
+    letter-spacing: 1.8px;
+    color: #5861AE;
+    text-transform: uppercase;
+    opacity: 1;
+    position: absolute;
+}
+
+.nav-menu {
+    display: flex;
+    align-content: flex-end;
+    position: absolute;
+    left: 991px;
+    height: 80px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+    align-items: center;
+}
+
+.nav-menu div {
+    font: normal normal normal 14px/19px Avenir;
+    letter-spacing: 1.05px;
+    color: #565657;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    width: 113px;
+    height: 80px;
+    border: 1px solid #f4efef;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-right: 0px;
+}
+
+.nav-menu div:hover{
+    background-color:#5861AE;
+    color: #FFFFFF;
+}

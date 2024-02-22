@@ -1,0 +1,75 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 387px;
+    justify-content: center;
+    align-items: center;
+}
+
+.signIn-title {
+    top: 206px;
+    left: 890px;
+    width: 128px;
+    height: 44px;
+    /* UI Properties */
+    text-align: left;
+    font: normal 32px/60px Avenir;
+    letter-spacing: 1.28px;
+    color: #4552C1;
+    text-transform: uppercase;
+    opacity: 1;
+    position: absolute;
+}
+
+.signIn-form input {
+    width: 100%;
+    padding: 22px 0px;
+    border: 0px;
+    box-sizing: border-box;
+    border-bottom: 1px solid gray;
+}
+
+.signIn-form input:focus {
+    outline: none;
+}
+
+.signIn-form img {
+    position: absolute;
+    top: 375px;
+    left: 1236px;
+    width: 15px;
+    height: 21px;
+    /* UI Properties */
+    background: transparent url('img/padlock.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.forgot-password {
+    top: 428px;
+    left: 1158px;
+    width: 140px;
+    height: 22px;
+    /* UI Properties */
+    text-align: left;
+    font: normal normal 14px/26px Avenir;
+    letter-spacing: 0.64px;
+    color: #4552C1;
+    text-transform: capitalize;
+    opacity: 1;
+    position: absolute;
+}
+
+.signIn-form button {
+    top: 611px;
+    left: 973px;
+    width: 150px;
+    height: 50px;
+    /* UI Properties */
+    background: #4552C1 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+    color: #FFFFFF;
+    margin-top: 50px;
+}
+
