@@ -11,17 +11,32 @@
   "pinCode":"pin"//pincode of the user,
 }
 
+
+// Product Model
+{
+  "id": "789", // Unique identifier for the product
+  "name": "Shirt", // Name of the product
+  "description": "Men's formal shirt" // Description of the product
+}
+
 // Service Model
 {
-  "id": "789", // Unique identifier for the laundry service
-  "name": "Dry Cleaning", // Name of the laundry service
-  "description": "Dry cleaning services for delicate fabrics", // Description of the service
-  "price": 10.00 // Price of the laundry service
+  "id": "456", // Unique identifier for the service
+  "name": "Ironing", // Name of the service
+  "description": "Ironing service for all types of clothes" // Description of the service
+}
+
+// Pricing Model
+{
+  "id": "012", // Unique identifier for the pricing
+  "productId": "789", // Identifier of the product
+  "serviceId": "456", // Identifier of the service
+  "price": 5.00 // Price for this product-service combination
 }
 
 // Order Model
 {
-  "id": "456", // Unique identifier for the order
+  "id": "345", // Unique identifier for the order
   "userId": "123", // Identifier of the user who placed the order
   "status": "Processing", // Status of the order
   "totalItems":"10",//Total number of items in a single order
@@ -33,26 +48,12 @@
   "orderDate": "2024-02-19T07:06:00Z", // Date and time when the order was placed
 }
 
-Product Model 
-{
-  "id": "434", // Unique identifier for the product
-  "name": "Shirts", // Name of the laundry product
-  "description": "Type of clothes", // Description of the product
-  "price-list": {
-    washing:10,
-    ironing:10,
-    towel:10,
-    chemical wash:10
-  }
-}
-------------------------------------------------------------------------------------------------------------
-
 // OrderItem Model
 {
-  "id": "012", // Unique identifier for the order item
-  "orderId": "456", // Identifier of the order to which this item belongs
-  "serviceId": "789", // Identifier of the service chosen for this item
+  "id": "678", // Unique identifier for the order item
+  "orderId": "345", // Identifier of the order to which this item belongs
+  "productId": "789", // Identifier of the product
+  "serviceId": "456", // Identifier of the service
   "quantity": 2, // Quantity of the service ordered
-  "itemDescription": "2 silk shirts", // Description of the items for this service
-  "itemPrice": 20.00 // Total price for this order item
+  "itemPrice": 10.00 // Total price for this order item
 }
