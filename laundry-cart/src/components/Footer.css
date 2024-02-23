@@ -1,0 +1,30 @@
+.footer {
+    display: flex;
+    width: 1440px;
+    height: 50px;
+    /* UI Properties */
+    text-align: center;
+    background: #182838 0% 0% no-repeat padding-box;
+    font: normal normal normal 12px/24px Avenir;
+    letter-spacing: 0.12px;
+    border: 1px solid #707070;
+    opacity: 1;
+    color: #FFFFFF;
+    justify-content: center;
+    align-content: space-between;
+    gap: 5px;
+}
+
+.footer .trademark {
+    top:17px;
+    width: 12px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1px solid #FFFFFF;
+    background:transparent;
+    margin: 0px;
+    padding-bottom: 3px;
+    padding-top: 0px;
+    position: relative;
+    font: normal normal normal 17px/9px Avenir;
+}

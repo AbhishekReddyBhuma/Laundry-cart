@@ -3,13 +3,14 @@ form {
     flex-direction: column;
     gap: 1.5rem;
     width: 387px;
-    justify-content: center;
+    top:291px;
+    position: absolute;
     align-items: center;
 }
 
 .signIn-title {
-    top: 206px;
-    left: 890px;
+    top: -95px;
+    left: 0px;
     width: 128px;
     height: 44px;
     /* UI Properties */
@@ -24,10 +25,11 @@ form {
 
 .signIn-form input {
     width: 100%;
-    padding: 22px 0px;
+    padding: 22px 5px;
     border: 0px;
     box-sizing: border-box;
     border-bottom: 1px solid gray;
+    background:transparent;
 }
 
 .signIn-form input:focus {
@@ -36,8 +38,8 @@ form {
 
 .signIn-form img {
     position: absolute;
-    top: 375px;
-    left: 1236px;
+    top: 102px;
+    right:5px;
     width: 15px;
     height: 21px;
     /* UI Properties */
@@ -46,9 +48,8 @@ form {
 }
 
 .forgot-password {
-    top: 428px;
-    left: 1158px;
-    width: 140px;
+    top: 155px;
+    right: 0px;
     height: 22px;
     /* UI Properties */
     text-align: left;
@@ -58,18 +59,28 @@ form {
     text-transform: capitalize;
     opacity: 1;
     position: absolute;
+    cursor:pointer;
 }
 
 .signIn-form button {
-    top: 611px;
-    left: 973px;
+    top: 245px;
+    left: 118px;
     width: 150px;
     height: 50px;
     /* UI Properties */
     background: #4552C1 0% 0% no-repeat padding-box;
     border-radius: 4px;
+    box-sizing: border-box;
     opacity: 1;
     color: #FFFFFF;
-    margin-top: 50px;
+    position: absolute;
+    border: 0px;
+    font: normal normal bold 15px/20px Avenir;
+    letter-spacing: 0.3px;
+    text-align: center;
 }
 
+.signIn-form button:hover {
+    box-shadow: 2px 4px 15px 3px lightslategray;
+    cursor:pointer;
+}
