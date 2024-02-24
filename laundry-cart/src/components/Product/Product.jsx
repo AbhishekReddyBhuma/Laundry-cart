@@ -4,10 +4,18 @@ import washingMachine from "./washing-machine.png";
 import ironing from "./ironing.png";
 import bleach from "./bleach.png";
 import towel from "./towel.png";
+import shirts from "./shirts.jpg";
+import tshirts from "./tshirts.jpg";
+import jeans from "./jeans.jpg";
+import jogers from "./jogers.jpg";
+import boxers from "./boxers.jpg";
+import trousers from "./trousers.jpg";
+import others from "./others.jpg";
 import "./product.css";
 
 const Product = () => {
   const { Products } = contextProvider();
+  const produts = [shirts, jeans, tshirts, boxers, jogers, trousers, others];
 
   return (
     <div id="products">
@@ -24,6 +32,9 @@ const Product = () => {
           {Products.map((products) => (
             <tr key={products._id}>
               <td>
+                {produts.map((img, index) => {
+                  return <img className="pimg" src={img} alt="" key={index} />;
+                })}
                 {products.product_name} {products.description}
               </td>
               <td>

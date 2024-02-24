@@ -1,345 +1,344 @@
 .home-main {
-    display: flex;
-    flex-direction: column;
-    width: 1440px;
-    height: 1037px;
+  display: flex;
+  flex-direction: column;
+  width: 1440px;
+  height: 1037px;
 }
 
 .home-page {
-    /* top: 81px; */
-    height: 769px;
-    display: flex;
-    /* position: absolute; */
-    width: 1440px;
-    align-content:flex-end;
-    border-bottom: 2px solid #4552C1;
+  /* top: 81px; */
+  height: 769px;
+  display: flex;
+  /* position: absolute; */
+  width: 1440px;
+  align-content: flex-end;
+  border-bottom: 2px solid #4552c1;
 }
- 
+
 .signIn-form {
-    display: flex;
-    height: 769px;
-    width:710px;
-    align-items: center;
-    justify-content: center;
-    background-color: #B9C0FD1A;
+  display: flex;
+  height: 769px;
+  width: 710px;
+  align-items: center;
+  justify-content: center;
+  background-color: #b9c0fd1a;
 }
 
 .div-line {
-    width: 0px;
-    height: 183px;
-    border: 1px solid #5861AE;
-    margin-top: 288.5px;
-    opacity: 50%;
+  width: 0px;
+  height: 183px;
+  border: 1px solid #5861ae;
+  margin-top: 288.5px;
+  opacity: 50%;
 }
 
 .home-left {
-    display: flex;
-    /* align-items: center; */
-    justify-content: center;
-    flex-grow: 1;
-    flex-shrink: 1;
-    max-width: 730px;
-    min-width: 400px;
-    flex-wrap: wrap;
-    /* padding-left: 152px; */
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+  max-width: 730px;
+  min-width: 400px;
+  flex-wrap: wrap;
+  /* padding-left: 152px; */
 }
 
 .home-left-sub {
-    text-align: left;
-    margin-top: 108px;
+  text-align: left;
+  margin-top: 108px;
 }
 
 .home-left-sub-small {
-    text-align: left;
-    margin-top: 50px;
+  text-align: left;
+  margin-top: 50px;
 }
 
 .brand-name {
-    /* top: 180px; */
-    height: 257px;
-    font: normal normal 900 100px/120px Avenir;
-    letter-spacing: 0px;
-    color: #5861AE;
-    text-transform: capitalize;
-    opacity: 1;
-    margin-top: 50px;
-    /* position: absolute; */
+  /* top: 180px; */
+  height: 257px;
+  font: normal normal 900 100px/120px Avenir;
+  letter-spacing: 0px;
+  color: #5861ae;
+  text-transform: capitalize;
+  opacity: 1;
+  margin-top: 50px;
+  /* position: absolute; */
 }
 
 .brand-name-small {
-    height: 172px;
-    /* text-align: left; */
-    font: normal normal 900 62px/80px Avenir;
-    letter-spacing: 2.48px;
-    color: #5861AE;
-    text-transform: capitalize;
-    opacity: 1;
-    margin-top: 215px;
+  height: 172px;
+  /* text-align: left; */
+  font: normal normal 900 62px/80px Avenir;
+  letter-spacing: 2.48px;
+  color: #5861ae;
+  text-transform: capitalize;
+  opacity: 1;
+  margin-top: 215px;
 }
 
 .description {
-    height: 27px;
-    font: normal normal normal 20px/26px Avenir;
-    letter-spacing: 0.8px;
-    color: #565657;
-    text-transform: capitalize;
-    opacity: 1;
-    margin-bottom: 74px;
+  height: 27px;
+  font: normal normal normal 20px/26px Avenir;
+  letter-spacing: 0.8px;
+  color: #565657;
+  text-transform: capitalize;
+  opacity: 1;
+  margin-bottom: 74px;
 }
 
 .description-small {
-    width: 175px;
-    height: 59px;
-    text-align: left;
-    font: normal normal normal 20px/32px Avenir;
-    letter-spacing: 0.8px;
-    color: #565657;
-    text-transform: capitalize;
-    opacity: 1;
+  width: 175px;
+  height: 59px;
+  text-align: left;
+  font: normal normal normal 20px/32px Avenir;
+  letter-spacing: 0.8px;
+  color: #565657;
+  text-transform: capitalize;
+  opacity: 1;
 }
 
 .no-account {
-    height: 22px;
-    text-align: left;
-    font: normal normal normal 16px/26px Avenir;
-    letter-spacing: 0.64px;
-    color: #565657;
-    text-transform: capitalize;
-    opacity: 1;
-    margin-bottom: 16.5px;
+  height: 22px;
+  text-align: left;
+  font: normal normal normal 16px/26px Avenir;
+  letter-spacing: 0.64px;
+  color: #565657;
+  text-transform: capitalize;
+  opacity: 1;
+  margin-bottom: 16.5px;
 }
 
 .have-account {
-    width: 171px;
-    height: 22px;
-    text-align: left;
-    font: normal normal normal 15px/26px Avenir;
-    letter-spacing: 0.64px;
-    color: #565657;
-    text-transform: capitalize;
-    opacity: 1;
-    margin-top: 132px;
+  width: 171px;
+  height: 22px;
+  text-align: left;
+  font: normal normal normal 15px/26px Avenir;
+  letter-spacing: 0.64px;
+  color: #565657;
+  text-transform: capitalize;
+  opacity: 1;
+  margin-top: 132px;
 }
 
 .register {
-    width: 150px;
-    height: 50px;
-    border: 2px solid #4552C1;
-    border-radius: 4px;
-    background: transparent;
-    opacity: 1;
-    color: #5861AE;
+  width: 150px;
+  height: 50px;
+  border: 2px solid #4552c1;
+  border-radius: 4px;
+  background: transparent;
+  opacity: 1;
+  color: #5861ae;
 }
 
 .signIn {
-    width: 150px;
-    height: 50px;
-    border: 2px solid #5861AE;
-    border-radius: 4px;
-    opacity: 1;
-    margin-top: 20px;
-    background: transparent;
-    color: #5861AE;
-    font: normal normal bold 15px/20px Avenir;
-    letter-spacing: 0.3px;
-    padding: 0px;
+  width: 150px;
+  height: 50px;
+  border: 2px solid #5861ae;
+  border-radius: 4px;
+  opacity: 1;
+  margin-top: 20px;
+  background: transparent;
+  color: #5861ae;
+  font: normal normal bold 15px/20px Avenir;
+  letter-spacing: 0.3px;
+  padding: 0px;
 }
 
-.register:hover{
-    background-color:#4552C1;
-    color: #FFFFFF;
-    cursor:pointer;
+.register:hover {
+  background-color: #4552c1;
+  color: #ffffff;
+  cursor: pointer;
 }
 
-.signIn:hover{
-    background-color:#4552C1;
-    color: #FFFFFF;
-    cursor:pointer;
+.signIn:hover {
+  background-color: #4552c1;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .home-bottom {
-    text-align: center;
-    width: 1440px;
-    height: 277px;
-
+  text-align: center;
+  width: 1440px;
+  height: 277px;
 }
 
 .home-bottom-1 {
-    height: 80x;
-    width: 1440px;
-    background: #F8F9FF 0% 0% no-repeat padding-box;
-    box-shadow: 0px -3px 6px #0000000B;
-    opacity: 1;
-    margin: 0px;
-    padding: 0px;
+  height: 80x;
+  width: 1440px;
+  background: #f8f9ff 0% 0% no-repeat padding-box;
+  box-shadow: 0px -3px 6px #0000000b;
+  opacity: 1;
+  margin: 0px;
+  padding: 0px;
 }
 
 .home-bottom-1 .line-1 {
-    height: 33px;
-    font: normal normal 600 24px/26px Avenir;
-    letter-spacing: 0.96px;
-    color: #5861AE;
-    opacity: 1;
-    padding-top: 19px;
-    margin: 0px;
-    padding-bottom: 0px;
+  height: 33px;
+  font: normal normal 600 24px/26px Avenir;
+  letter-spacing: 0.96px;
+  color: #5861ae;
+  opacity: 1;
+  padding-top: 19px;
+  margin: 0px;
+  padding-bottom: 0px;
 }
 
 .home-bottom-1 .line-2 {
-    font: italic normal normal 10px/24px Avenir;
-    letter-spacing: 0.4px;
-    color: #3D3D43;
-    opacity: 1;
-    margin: 0px;
-    padding-top: 0px;
-    padding-bottom: 5px;
+  font: italic normal normal 10px/24px Avenir;
+  letter-spacing: 0.4px;
+  color: #3d3d43;
+  opacity: 1;
+  margin: 0px;
+  padding-top: 0px;
+  padding-bottom: 5px;
 }
 
 .home-bottom-2 {
-    height: 197px;
+  height: 197px;
 }
 
 .home-bottom-2 img {
-    top:920px;
-    left:-16px;
-    width: 1457px;
-    height: 197px;
-    background: transparent url('./Footer.svg') 0% 0% no-repeat padding-box;
-    opacity: 1;
-    z-index: -1;
-    position:absolute;
-    overflow: hidden;
+  top: 920px;
+  left: -16px;
+  width: 1457px;
+  height: 197px;
+  background: transparent url("./Footer.svg") 0% 0% no-repeat padding-box;
+  opacity: 1;
+  z-index: -1;
+  position: absolute;
+  overflow: hidden;
 }
 
 .home-bottom-2 .line-1 {
-    top: 37px;
-    width: 1440px;
-    display: flex;
-    flex-wrap: wrap;
-    /* align-content: space-around;
+  top: 37px;
+  width: 1440px;
+  display: flex;
+  flex-wrap: wrap;
+  /* align-content: space-around;
     z-index: 1; */
-    position: relative;
+  position: relative;
 }
 
 .home-bottom-2 .line-1 .middle {
-    padding: 0px 0px 0px 85px;
-    font: normal normal 16px/24px Avenir;
-    letter-spacing: 0.16px;
-    color: #182838;
-    text-transform: capitalize;
-    opacity: 1;
-    margin: 0px;
+  padding: 0px 0px 0px 85px;
+  font: normal normal 16px/24px Avenir;
+  letter-spacing: 0.16px;
+  color: #182838;
+  text-transform: capitalize;
+  opacity: 1;
+  margin: 0px;
 }
 
 .home-bottom-2 .line-1 .begin {
-    padding: 0px 237px 0px 140px;
-    font: normal normal 18px/24px Avenir;
-    letter-spacing: 0.18px;
-    color: #182838;
-    text-transform: uppercase;
-    opacity: 1;
-    margin: 0px;
+  padding: 0px 237px 0px 140px;
+  font: normal normal 18px/24px Avenir;
+  letter-spacing: 0.18px;
+  color: #182838;
+  text-transform: uppercase;
+  opacity: 1;
+  margin: 0px;
 }
 
 .home-bottom-2 .line-1 .end {
-    padding: 0px 0px 0px 98px;
-    font: normal normal 18px/24px Avenir;
-    letter-spacing: 0.18px;
-    color: #182838;
-    text-transform: uppercase;
-    opacity: 1;
-    margin: 0px;
+  padding: 0px 0px 0px 98px;
+  font: normal normal 18px/24px Avenir;
+  letter-spacing: 0.18px;
+  color: #182838;
+  text-transform: uppercase;
+  opacity: 1;
+  margin: 0px;
 }
 
 .home-bottom-2 .line-2 {
-    top: 25px;
-    width: 1440px;
-    display: flex;
-    flex-wrap: wrap;
-    /* align-content: space-around;
+  top: 25px;
+  width: 1440px;
+  display: flex;
+  flex-wrap: wrap;
+  /* align-content: space-around;
     z-index: 1; */
-    position: relative;
+  position: relative;
 }
 
 .home-bottom-2 .line-2 .middle {
-    top:25px;
-    padding: 0px 221px 0px 0px;
-    font: normal normal normal 14px/24px Avenir;
-    letter-spacing: 0.14px;
-    color: #182838;
-    text-transform: capitalize;
-    opacity: 1;
-    margin: 0px;
-    position: relative;
+  top: 25px;
+  padding: 0px 221px 0px 0px;
+  font: normal normal normal 14px/24px Avenir;
+  letter-spacing: 0.14px;
+  color: #182838;
+  text-transform: capitalize;
+  opacity: 1;
+  margin: 0px;
+  position: relative;
 }
 
 .home-bottom-2 .line-2 .begin {
-    top:27px;
-    padding: 0px 160px 0px 140px;
-    font: normal normal normal 15px/20px Avenir;
-    letter-spacing: 0.6px;
-    color: #3D3D43;
-    text-transform: capitalize;
-    opacity: 1;
-    margin: 0px;
-    position: relative;
+  top: 27px;
+  padding: 0px 160px 0px 140px;
+  font: normal normal normal 15px/20px Avenir;
+  letter-spacing: 0.6px;
+  color: #3d3d43;
+  text-transform: capitalize;
+  opacity: 1;
+  margin: 0px;
+  position: relative;
 }
 
-.home-bottom-2 .line-2 .facebook{
-    top: 25px;
-    left: 1108px;
-    width: 19px;
-    height: 19px;
-    background: transparent url('./facebook.svg') 0% 0% no-repeat padding-box;
-    opacity: 0.6;
+.home-bottom-2 .line-2 .facebook {
+  top: 25px;
+  left: 1108px;
+  width: 19px;
+  height: 19px;
+  background: transparent url("./facebook.svg") 0% 0% no-repeat padding-box;
+  opacity: 0.6;
 }
 
 .home-bottom-2 .line-2 .instagram {
-    top: 25px;
-    left: 1148px;
-    width: 20px;
-    height: 20px;
-    background: transparent url('./instagram.svg') 0% 0% no-repeat padding-box;
-    opacity: 0.6;
+  top: 25px;
+  left: 1148px;
+  width: 20px;
+  height: 20px;
+  background: transparent url("./instagram.svg") 0% 0% no-repeat padding-box;
+  opacity: 0.6;
 }
 
 .home-bottom-2 .line-2 .linkedIn {
-    top: 25px;
-    left: 1188px;
-    width: 20px;
-    height: 20px;
-    background: transparent url('./linkedin.svg') 0% 0% no-repeat padding-box;
-    opacity: 0.6;
+  top: 25px;
+  left: 1188px;
+  width: 20px;
+  height: 20px;
+  background: transparent url("./linkedin.svg") 0% 0% no-repeat padding-box;
+  opacity: 0.6;
 }
 
 .home-bottom-2 .line-3 {
-    top:38px;
-    width: 1440px;
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
+  top: 38px;
+  width: 1440px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
 }
 
 .home-bottom-2 .line-3 .begin {
-    top:27px;
-    padding: 0px 206px 0px 552px;
-    font: normal normal normal 15px/20px Avenir;
-    letter-spacing: 0.6px;
-    color: #3D3D43;
-    text-transform: capitalize;
-    opacity: 1;
-    margin: 0px;
-    position: relative;
+  top: 27px;
+  padding: 0px 206px 0px 552px;
+  font: normal normal normal 15px/20px Avenir;
+  letter-spacing: 0.6px;
+  color: #3d3d43;
+  text-transform: capitalize;
+  opacity: 1;
+  margin: 0px;
+  position: relative;
 }
 
 .home-bottom-2 .line-3 .end {
-    top:25px;
-    padding: 0px 221px 0px 0px;
-    font: normal normal normal 14px/24px Avenir;
-    letter-spacing: 0.14px;
-    color: #182838;
-    text-transform: capitalize;
-    opacity: 1;
-    margin: 0px;
-    position: relative;
+  top: 25px;
+  padding: 0px 221px 0px 0px;
+  font: normal normal normal 14px/24px Avenir;
+  letter-spacing: 0.14px;
+  color: #182838;
+  text-transform: capitalize;
+  opacity: 1;
+  margin: 0px;
+  position: relative;
 }
