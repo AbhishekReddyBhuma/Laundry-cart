@@ -17,7 +17,7 @@ const Context = ({ children }) => {
   };
   useEffect(() => {
     fetchPoduct();
-  });
+  },[]);
   //   console.log(Products);
 
   return (
