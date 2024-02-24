@@ -1,0 +1,39 @@
+.main {
+  width: 57px;
+  height: 933px;
+  background: #5861ae 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+.menu {
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0 auto; */
+  display: flex;
+  width: 57px;
+  height: 47px;
+  /* background: #ffffff 0% 0% no-repeat padding-box; */
+  opacity: 1;
+}
+.home {
+  width: 22px;
+  height: 22px;
+  background: transparent url("./home-run\ \(1\).png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+}
+.more {
+  width: 22px;
+  height: 22px;
+
+  /* background: transparent url("/more.png") 0% 0% no-repeat padding-box; */
+  opacity: 1;
+}
+#more {
+  background: #ffffff 0% 0% no-repeat padding-box;
+}
+.lists {
+  width: 25px;
+  height: 18px;
+  opacity: 1;
+}
