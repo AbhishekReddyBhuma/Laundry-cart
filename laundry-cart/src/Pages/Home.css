@@ -33,26 +33,48 @@
 }
 
 .home-left {
-    text-align: left;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
     flex-grow: 1;
     flex-shrink: 1;
-    max-width: 578px;
+    max-width: 730px;
     min-width: 400px;
-    padding-left: 152px;
+    flex-wrap: wrap;
+    /* padding-left: 152px; */
+}
+
+.home-left-sub {
+    text-align: left;
+    margin-top: 108px;
+}
+
+.home-left-sub-small {
+    text-align: left;
+    margin-top: 50px;
 }
 
 .brand-name {
-    top: 180px;
+    /* top: 180px; */
     height: 257px;
     font: normal normal 900 100px/120px Avenir;
     letter-spacing: 0px;
     color: #5861AE;
-
     text-transform: capitalize;
     opacity: 1;
-    margin-top: 180px;
+    margin-top: 50px;
     /* position: absolute; */
-    
+}
+
+.brand-name-small {
+    height: 172px;
+    /* text-align: left; */
+    font: normal normal 900 62px/80px Avenir;
+    letter-spacing: 2.48px;
+    color: #5861AE;
+    text-transform: capitalize;
+    opacity: 1;
+    margin-top: 215px;
 }
 
 .description {
@@ -65,6 +87,17 @@
     margin-bottom: 74px;
 }
 
+.description-small {
+    width: 175px;
+    height: 59px;
+    text-align: left;
+    font: normal normal normal 20px/32px Avenir;
+    letter-spacing: 0.8px;
+    color: #565657;
+    text-transform: capitalize;
+    opacity: 1;
+}
+
 .no-account {
     height: 22px;
     text-align: left;
@@ -75,6 +108,19 @@
     opacity: 1;
     margin-bottom: 16.5px;
 }
+
+.have-account {
+    width: 171px;
+    height: 22px;
+    text-align: left;
+    font: normal normal normal 15px/26px Avenir;
+    letter-spacing: 0.64px;
+    color: #565657;
+    text-transform: capitalize;
+    opacity: 1;
+    margin-top: 132px;
+}
+
 .register {
     width: 150px;
     height: 50px;
@@ -85,7 +131,27 @@
     color: #5861AE;
 }
 
+.signIn {
+    width: 150px;
+    height: 50px;
+    border: 2px solid #5861AE;
+    border-radius: 4px;
+    opacity: 1;
+    margin-top: 20px;
+    background: transparent;
+    color: #5861AE;
+    font: normal normal bold 15px/20px Avenir;
+    letter-spacing: 0.3px;
+    padding: 0px;
+}
+
 .register:hover{
+    background-color:#4552C1;
+    color: #FFFFFF;
+    cursor:pointer;
+}
+
+.signIn:hover{
     background-color:#4552C1;
     color: #FFFFFF;
     cursor:pointer;
