@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { contextProvider } from "../../Context/Context";
 import washingMachine from "./washing-machine.png";
 import ironing from "./ironing.png";
@@ -16,7 +16,11 @@ import "./product.css";
 const Product = () => {
   const { Products } = contextProvider();
   const produts = [shirts, jeans, tshirts, boxers, jogers, trousers, others];
+  const [Quantity, setQuantity] = useState();
 
+  const handleChange = (e) => {
+    setQuantity(e.target.value);
+  };
   return (
     <div id="products">
       <table>
@@ -38,7 +42,7 @@ const Product = () => {
                 {products.product_name} {products.description}
               </td>
               <td>
-                <input type="number" value={0} />
+                <input type="number" value={0} onChange={handleChange} />
               </td>
               <td className="washType">
                 <img src={washingMachine} alt="20/RS" />
