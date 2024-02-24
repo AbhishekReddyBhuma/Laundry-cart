@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SignIn from "../components/SignIn/SignIn";
-import "./Home.css";
+import "./signinpage.css";
 import Register from "../components/register/Register";
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
   const [BtnText, setBtnText] = useState("Register");
   const hanldeBtnText = () => {
     setRegisterToggle(!registerToggle);
-    registerToggle ? setBtnText("Register") : setBtnText("SignIn");
+    registerToggle ? setBtnText("Register") : setBtnText("Sign In");
   };
 
   return (
@@ -25,7 +25,7 @@ const Home = () => {
             {!registerToggle ? (
               <>Don't Have An Account?</>
             ) : (
-              <>Have an account !</>
+              <>Already Have an account !</>
             )}
           </div>
           <button className="register" onClick={hanldeBtnText}>

@@ -14,10 +14,11 @@ const Context = ({ children }) => {
     // console.log(await respose.json());
     const result = await respose.json();
     setProducts(result);
+    console.log(result);
   };
   useEffect(() => {
     fetchPoduct();
-  });
+  }, []);
   //   console.log(Products);
 
   return (
