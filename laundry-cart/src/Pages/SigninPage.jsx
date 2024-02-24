@@ -5,32 +5,54 @@ import Register from "../components/register/Register";
 
 const Home = () => {
   const [registerToggle, setRegisterToggle] = useState(false);
-  const [BtnText, setBtnText] = useState("Register");
-  const hanldeBtnText = () => {
-    setRegisterToggle(!registerToggle);
-    registerToggle ? setBtnText("Register") : setBtnText("Sign In");
-  };
-
+  const [redesign, setRedesign] = useState([
+    "brand-name",
+    "description",
+    "home-left-sub",
+  ]);
   return (
     <div className="home-main">
       <div className="home-page">
         <div className="home-left">
-          <div className="brand-name">
-            Laundry
-            <br />
-            service
-          </div>
-          <div className="description">Doorstep Wash & Dryclean Service</div>
-          <div className="no-account">
+          <div className={redesign[2]}>
+            <div className={redesign[0]}>
+              Laundry
+              <br />
+              service
+            </div>
+            <div className={redesign[1]}>Doorstep Wash & Dryclean Service</div>
             {!registerToggle ? (
-              <>Don't Have An Account?</>
+              <>
+                <div className="no-account">Don't Have An Account?</div>
+                <button
+                  className="register"
+                  onClick={(e) => {
+                    setRegisterToggle(true);
+                    setRedesign([
+                      "brand-name-small",
+                      "description-small",
+                      "home-left-sub-small",
+                    ]);
+                  }}
+                >
+                  Register
+                </button>
+              </>
             ) : (
-              <>Already Have an account !</>
+              <>
+                <div className="have-account">Already Have Account</div>
+                <button
+                  className="signIn"
+                  onClick={(e) => {
+                    setRegisterToggle(false);
+                    setRedesign(["brand-name", "description", "home-left-sub"]);
+                  }}
+                >
+                  Sign In
+                </button>
+              </>
             )}
           </div>
-          <button className="register" onClick={hanldeBtnText}>
-            {BtnText}
-          </button>
         </div>
         <div className="div-line"></div>
         {!registerToggle ? (
@@ -38,9 +60,7 @@ const Home = () => {
             <SignIn />
           </div>
         ) : (
-          <div className="registration-form">
-            <Register />
-          </div>
+          <Register />
         )}
       </div>
       <div className="home-bottom">
