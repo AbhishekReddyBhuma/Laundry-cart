@@ -13,38 +13,232 @@ import trousers from "./images/trousers.jpg";
 import others from "./images/others.jpg";
 
 import "./product.css";
+import OrderSummery from "../OrderSummery/OrderSummery";
 
 const Product = () => {
   const { Products } = contextProvider();
   const initals = {
-    shitsQuantity: 0,
-    tshitsQuantity: 0,
+    shirtsQuantity: 0,
+    tshirtsQuantity: 0,
     jeansQuantity: 0,
     trousersQuantity: 0,
     joggersQuantity: 0,
     boxersQuantity: 0,
     othersQuantity: 0,
   };
+  const [ProductName, setProductName] = useState("");
 
   const [Quantity, setQuantity] = useState(initals);
-  const [ProdutsName, setProdutsName] = useState({
-    p1: "",
-    p2: "",
-    p3: "",
-    p4: "",
-    p5: "",
-    p6: "",
-    p7: "",
+
+  const [Orders, setOrders] = useState([]);
+  // order should have objects to store { product name quantity {wash-type with price} and final price}
+  const [shirtsOrder, setshirtsOrder] = useState({
+    ProductName: "",
+    Quantity: 0,
+    washType: [],
+    initialAmount: 0,
   });
 
-  const [Price, setPrice] = useState();
+  const [TshirtsOrder, setTshirtsOrder] = useState({
+    ProductName: "",
+    Quantity: 0,
+    washType: [],
+    initialAmount: 0,
+  });
+  const [jeansOrder, setjeansOrder] = useState({
+    ProductName: "",
+    Quantity: 0,
+    washType: [],
+    initialAmount: 0,
+  });
+  const [trousersOrder, settrousersOrder] = useState({
+    ProductName: "",
+    Quantity: 0,
+    washType: [],
+    initialAmount: 0,
+  });
+  const [boxersOrder, setboxersOrder] = useState({
+    ProductName: "",
+    Quantity: 0,
+    washType: [],
+    initialAmount: 0,
+  });
+  const [othersOrder, setothersOrder] = useState({
+    ProductName: "",
+    Quantity: 0,
+    washType: [],
+    initialAmount: 0,
+  });
+  const [jogersOrder, setjogersOrder] = useState({
+    ProductName: "",
+    Quantity: 0,
+    washType: [],
+    initialAmount: 0,
+  });
 
   const handleChange = (e) => {
-    setQuantity({ ...Quantity, [e.target.name]: e.target.value });
+    if (e.target.name === "shirts") {
+      setshirtsOrder({
+        ...shirtsOrder,
+        ProductName: e.target.name,
+        Quantity: e.target.value,
+      });
+    } else if (e.target.name === "Tshirts") {
+      setTshirtsOrder({
+        ...TshirtsOrder,
+        ProductName: e.target.name,
+        Quantity: e.target.value,
+      });
+    } else if (e.target.name === "jeans") {
+      setjeansOrder({
+        ...jeansOrder,
+        ProductName: e.target.name,
+        Quantity: e.target.value,
+      });
+    } else if (e.target.name === "boxers") {
+      setboxersOrder({
+        ...boxersOrder,
+        ProductName: e.target.name,
+        Quantity: e.target.value,
+      });
+    } else if (e.target.name === "trousers") {
+      settrousersOrder({
+        ...trousersOrder,
+        ProductName: e.target.name,
+        Quantity: e.target.value,
+      });
+    } else if (e.target.name === "joggers") {
+      setjogersOrder({
+        ...jogersOrder,
+        ProductName: e.target.name,
+        Quantity: e.target.value,
+      });
+    } else if (e.target.name === "others") {
+      setothersOrder({
+        ...othersOrder,
+        ProductName: e.target.name,
+        Quantity: e.target.value,
+      });
+    }
   };
-  console.log(Products);
+  console.log(shirtsOrder);
+
+  const handleProceed = () => {
+    setOrders([
+      shirtsOrder,
+      TshirtsOrder,
+      jeansOrder,
+      trousersOrder,
+      boxersOrder,
+      othersOrder,
+      jogersOrder,
+    ]);
+  };
+  const handleClick = (e) => {
+    console.log(e.target.id);
+
+    if (e.target.name === "shirts") {
+      setshirtsOrder({
+        ...shirtsOrder,
+        washType: [...shirtsOrder.washType, e.target.id],
+        initialAmount: shirtsOrder.initialAmount + parseInt(e.target.alt),
+      });
+    } else if (e.target.name === "Tshirts") {
+      setTshirtsOrder({
+        ...TshirtsOrder,
+        washType: [...TshirtsOrder.washType, e.target.id],
+        initialAmount: TshirtsOrder.initialAmount + parseInt(e.target.alt),
+      });
+    } else if (e.target.name === "jeans") {
+      setjeansOrder({
+        ...jeansOrder,
+        washType: [...jeansOrder.washType, e.target.id],
+        initialAmount: jeansOrder.initialAmount + parseInt(e.target.alt),
+      });
+    } else if (e.target.name === "joggers") {
+      setjogersOrder({
+        ...jogersOrder,
+        washType: [...jogersOrder.washType, e.target.id],
+        initialAmount: jogersOrder.initialAmount + parseInt(e.target.alt),
+      });
+    } else if (e.target.name === "trousers") {
+      settrousersOrder({
+        ...trousersOrder,
+        washType: [...trousersOrder.washType, e.target.id],
+        initialAmount: trousersOrder.initialAmount + parseInt(e.target.alt),
+      });
+    } else if (e.target.name === "boxers") {
+      setboxersOrder({
+        ...boxersOrder,
+        washType: [...boxersOrder.washType, e.target.id],
+        initialAmount: boxersOrder.initialAmount + parseInt(e.target.alt),
+      });
+    } else if (e.target.name === "others") {
+      setothersOrder({
+        ...othersOrder,
+        washType: [...othersOrder.washType, e.target.id],
+        initialAmount: othersOrder.initialAmount + parseInt(e.target.alt),
+      });
+    }
+  };
+  console.log(Orders);
+
+  const handleReset = (e) => {
+    if (e.target.name === "others") {
+      setothersOrder({
+        ProductName: "",
+        Quantity: 0,
+        washType: [],
+        initialAmount: 0,
+      });
+    } else if (e.target.name === "shirts") {
+      setshirtsOrder({
+        ProductName: "",
+        Quantity: 0,
+        washType: [],
+        initialAmount: 0,
+      });
+    } else if (e.target.name === "Tshirts") {
+      setTshirtsOrder({
+        ProductName: "",
+        Quantity: 0,
+        washType: [],
+        initialAmount: 0,
+      });
+    } else if (e.target.name === "trousers") {
+      settrousersOrder({
+        ProductName: "",
+        Quantity: 0,
+        washType: [],
+        initialAmount: 0,
+      });
+    } else if (e.target.name === "boxers") {
+      setboxersOrder({
+        ProductName: "",
+        Quantity: 0,
+        washType: [],
+        initialAmount: 0,
+      });
+    } else if (e.target.name === "joggers") {
+      setjogersOrder({
+        ProductName: "",
+        Quantity: 0,
+        washType: [],
+        initialAmount: 0,
+      });
+    } else if (e.target.name === "jeans") {
+      setjeansOrder({
+        ProductName: "",
+        Quantity: 0,
+        washType: [],
+        initialAmount: 0,
+      });
+    }
+  };
+
   return (
     <div id="products">
+      <OrderSummery orders={Orders} />
       <table>
         <thead>
           <tr>
@@ -59,7 +253,7 @@ const Product = () => {
             <td>
               <div style={{ display: "flex", gap: "10px" }}>
                 <img className="pimg" src={shirts} alt="" />
-                <span>
+                <span name="shirts">
                   Shirts <br />
                   Cotton shirt suitable for everyday wear
                 </span>
@@ -69,16 +263,47 @@ const Product = () => {
               <input
                 type="number"
                 onChange={handleChange}
-                name="shitsQuantity"
+                name="shirts"
+                value={shirtsOrder.Quantity}
               />
             </td>
             <td className="washType">
-              <img src={washingMachine} alt="20/RS" />
-              <img src={ironing} alt="" />
-              <img src={towel} alt="" />
-              <img src={bleach} alt="" />
+              <img
+                src={washingMachine}
+                alt="30"
+                name="shirts"
+                id="washing"
+                onClick={handleClick}
+              />
+              <img
+                src={ironing}
+                alt="10"
+                id="ironing"
+                name="shirts"
+                onClick={handleClick}
+              />
+              <img
+                src={towel}
+                alt="20"
+                id="towel"
+                name="shirts"
+                onClick={handleClick}
+              />
+              <img
+                src={bleach}
+                alt="15/RS"
+                id="bleach"
+                name="shirts"
+                onClick={handleClick}
+              />
             </td>
-            <td>{Quantity.shitsQuantity}</td>
+            <td>
+              {shirtsOrder.Quantity} X {shirtsOrder.initialAmount}=
+              {shirtsOrder.Quantity * shirtsOrder.initialAmount}
+              <button name="shirts" onClick={handleReset}>
+                Reset
+              </button>
+            </td>
           </tr>
           <tr>
             <td>
@@ -94,16 +319,47 @@ const Product = () => {
               <input
                 type="number"
                 onChange={handleChange}
-                name="jeansQuantity"
+                name="jeans"
+                value={jeansOrder.Quantity}
               />
             </td>
             <td className="washType">
-              <img src={washingMachine} alt="20/RS" />
-              <img src={ironing} alt="" />
-              <img src={towel} alt="" />
-              <img src={bleach} alt="" />
+              <img
+                src={washingMachine}
+                alt="30"
+                name="jeans"
+                id="washing"
+                onClick={handleClick}
+              />
+              <img
+                src={ironing}
+                alt="10"
+                id="ironing"
+                name="jeans"
+                onClick={handleClick}
+              />
+              <img
+                src={towel}
+                alt="20"
+                id="towel"
+                name="jeans"
+                onClick={handleClick}
+              />
+              <img
+                src={bleach}
+                alt="15"
+                id="bleach"
+                name="jeans"
+                onClick={handleClick}
+              />
             </td>
-            <td>{Quantity.jeansQuantity}</td>
+            <td>
+              {jeansOrder.Quantity} X {jeansOrder.initialAmount}=
+              {jeansOrder.Quantity * jeansOrder.initialAmount}
+              <button name="jeans" onClick={handleReset}>
+                Reset
+              </button>
+            </td>
           </tr>
           <tr>
             <td>
@@ -119,16 +375,47 @@ const Product = () => {
               <input
                 type="number"
                 onChange={handleChange}
-                name="tshitsQuantity"
+                name="Tshirts"
+                value={TshirtsOrder.Quantity}
               />
             </td>
             <td className="washType">
-              <img src={washingMachine} alt="20/RS" />
-              <img src={ironing} alt="" />
-              <img src={towel} alt="" />
-              <img src={bleach} alt="" />
+              <img
+                src={washingMachine}
+                alt="30"
+                name="Tshirts"
+                id="washing"
+                onClick={handleClick}
+              />
+              <img
+                src={ironing}
+                alt="10"
+                id="ironing"
+                name="Tshirts"
+                onClick={handleClick}
+              />
+              <img
+                src={towel}
+                alt="20"
+                id="towel"
+                name="Tshirts"
+                onClick={handleClick}
+              />
+              <img
+                src={bleach}
+                alt="15"
+                id="bleach"
+                name="Tshirts"
+                onClick={handleClick}
+              />
             </td>
-            <td>{Quantity.tshitsQuantity}</td>
+            <td>
+              {TshirtsOrder.Quantity} X {TshirtsOrder.initialAmount}=
+              {TshirtsOrder.Quantity * TshirtsOrder.initialAmount}
+              <button name="Tshirts" onClick={handleReset}>
+                Reset
+              </button>
+            </td>
           </tr>
           <tr>
             <td>
@@ -144,16 +431,47 @@ const Product = () => {
               <input
                 type="number"
                 onChange={handleChange}
-                name="boxersQuantity"
+                name="boxers"
+                value={boxersOrder.Quantity}
               />
             </td>
             <td className="washType">
-              <img src={washingMachine} alt="20/RS" />
-              <img src={ironing} alt="" />
-              <img src={towel} alt="" />
-              <img src={bleach} alt="" />
+              <img
+                src={washingMachine}
+                alt="30"
+                name="boxers"
+                id="washing"
+                onClick={handleClick}
+              />
+              <img
+                src={ironing}
+                alt="10"
+                id="ironing"
+                name="boxers"
+                onClick={handleClick}
+              />
+              <img
+                src={towel}
+                alt="20"
+                id="towel"
+                name="boxers"
+                onClick={handleClick}
+              />
+              <img
+                src={bleach}
+                alt="15/RS"
+                id="bleach"
+                name="boxers"
+                onClick={handleClick}
+              />
             </td>
-            <td>{Quantity.boxersQuantity}</td>
+            <td>
+              {boxersOrder.Quantity} X {boxersOrder.initialAmount}=
+              {boxersOrder.Quantity * boxersOrder.initialAmount}
+              <button name="boxers" onClick={handleReset}>
+                Reste
+              </button>
+            </td>
           </tr>
           <tr>
             <td>
@@ -169,16 +487,47 @@ const Product = () => {
               <input
                 type="number"
                 onChange={handleChange}
-                name="joggersQuantity"
+                name="joggers"
+                value={jogersOrder.Quantity}
               />
             </td>
             <td className="washType">
-              <img src={washingMachine} alt="20/RS" />
-              <img src={ironing} alt="" />
-              <img src={towel} alt="" />
-              <img src={bleach} alt="" />
+              <img
+                src={washingMachine}
+                alt="30"
+                name="joggers"
+                id="washing"
+                onClick={handleClick}
+              />
+              <img
+                src={ironing}
+                alt="10"
+                id="ironing"
+                name="joggers"
+                onClick={handleClick}
+              />
+              <img
+                src={towel}
+                alt="20"
+                id="towel"
+                name="joggers"
+                onClick={handleClick}
+              />
+              <img
+                src={bleach}
+                alt="15/RS"
+                id="bleach"
+                name="joggers"
+                onClick={handleClick}
+              />
             </td>
-            <td>{Quantity.joggersQuantity}</td>
+            <td>
+              {jogersOrder.Quantity} X {jogersOrder.initialAmount}=
+              {jogersOrder.Quantity * jogersOrder.initialAmount}
+              <button name="joggers" onClick={handleReset}>
+                Reset
+              </button>
+            </td>
           </tr>
           <tr>
             <td>
@@ -194,16 +543,47 @@ const Product = () => {
               <input
                 type="number"
                 onChange={handleChange}
-                name="trousersQuantity"
+                name="trousers"
+                value={trousersOrder.Quantity}
               />
             </td>
             <td className="washType">
-              <img src={washingMachine} alt="20/RS" />
-              <img src={ironing} alt="" />
-              <img src={towel} alt="" />
-              <img src={bleach} alt="" />
+              <img
+                src={washingMachine}
+                alt="30"
+                name="trousers"
+                id="washing"
+                onClick={handleClick}
+              />
+              <img
+                src={ironing}
+                alt="10"
+                id="ironing"
+                name="trousers"
+                onClick={handleClick}
+              />
+              <img
+                src={towel}
+                alt="20"
+                id="towel"
+                name="trousers"
+                onClick={handleClick}
+              />
+              <img
+                src={bleach}
+                alt="15"
+                id="bleach"
+                name="trousers"
+                onClick={handleClick}
+              />
             </td>
-            <td>{Quantity.trousersQuantity}</td>
+            <td>
+              {trousersOrder.Quantity} X {trousersOrder.initialAmount}=
+              {trousersOrder.Quantity * trousersOrder.initialAmount}
+              <button name="trousers" onClick={handleReset}>
+                Reset
+              </button>
+            </td>
           </tr>
           <tr>
             <td>
@@ -219,17 +599,46 @@ const Product = () => {
               <input
                 type="number"
                 onChange={handleChange}
-                name="othersQuantity"
+                name="others"
+                value={othersOrder.Quantity}
               />
             </td>
             <td className="washType">
-              <img src={washingMachine} alt="20/RS" />
-              <img src={ironing} alt="" />
-              <img src={towel} alt="" />
-              <img src={bleach} alt="" />
+              <img
+                src={washingMachine}
+                alt="30"
+                name="others"
+                id="washing"
+                onClick={handleClick}
+              />
+              <img
+                src={ironing}
+                alt="10"
+                id="ironing"
+                name="others"
+                onClick={handleClick}
+              />
+              <img
+                src={towel}
+                alt="20"
+                id="towel"
+                name="others"
+                onClick={handleClick}
+              />
+              <img
+                src={bleach}
+                alt="15"
+                id="bleach"
+                name="others"
+                onClick={handleClick}
+              />
             </td>
             <td>
-              {Quantity.othersQuantity} x {} = {}
+              {othersOrder.Quantity} X {othersOrder.initialAmount}=
+              {othersOrder.Quantity * othersOrder.initialAmount}
+              <button name="others" onClick={handleReset}>
+                Reset
+              </button>
             </td>
           </tr>
         </tbody>
@@ -238,7 +647,9 @@ const Product = () => {
       <div className="btns">
         <button className="cancle">Cancle</button>
 
-        <button className="proceed">Proceed</button>
+        <button className="proceed" onClick={handleProceed}>
+          Proceed
+        </button>
       </div>
     </div>
   );
