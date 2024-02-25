@@ -4,6 +4,7 @@ const ContextApi = createContext();
 
 const Context = ({ children }) => {
   const [Products, setProducts] = useState([]);
+
   const fetchPoduct = async () => {
     const respose = await fetch("http://localhost:8080/api/fetchproducts", {
       method: "GET",
@@ -14,12 +15,11 @@ const Context = ({ children }) => {
     // console.log(await respose.json());
     const result = await respose.json();
     setProducts(result);
-    console.log(result);
   };
   useEffect(() => {
     fetchPoduct();
-  },[]);
-  //   console.log(Products);
+  }, []);
+  console.log(Products);
 
   return (
     <ContextApi.Provider value={{ Products }}>{children}</ContextApi.Provider>

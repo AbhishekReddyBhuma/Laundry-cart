@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductsPage from "./Pages/ProductsPage";
+import Protected from "./components/Protected";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           <NavBar />
 
           <Routes>
-            <Route path="/" element={<ProductsPage />} />
+            <Route path="/" element={<Protected Components={ProductsPage} />} />
             <Route path="/signin" element={<SignIN />} />
             <Route path="/products" element={<ProductsPage />} />
           </Routes>
