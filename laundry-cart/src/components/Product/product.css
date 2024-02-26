@@ -83,3 +83,8 @@
   border-radius: 2px;
   opacity: 1;
 }
+.resetbtn {
+  padding: 0 22px;
+  display: flex;
+  justify-content: space-between;
+}

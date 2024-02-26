@@ -8,6 +8,8 @@ import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductsPage from "./Pages/ProductsPage";
 import Protected from "./components/Protected";
+// import Orders from "./components/PastOrders/Orders";
+import OrdersPage from "./Pages/OrdersPage";
 
 function App() {
   return (
@@ -19,7 +21,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Protected Components={ProductsPage} />} />
             <Route path="/signin" element={<SignIN />} />
-            <Route path="/products" element={<ProductsPage />} />
+            <Route
+              path="/products"
+              element={<Protected Components={ProductsPage} />}
+            />
+            <Route path="/orders" element={<OrdersPage />} />
           </Routes>
 
           <Footer />

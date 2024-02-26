@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./sidebar.css";
 import home from "./home-run (1).png";
 import more from "./more@2x.png";
@@ -9,13 +10,19 @@ const Sidebar = () => {
     <>
       <div className="main">
         <div className="menu ">
-          <img className="home" src={home} alt="" />
+          <Link to="/">
+            <img className="home" id="" src={home} alt="" />
+          </Link>
         </div>
         <div className="menu  " id="more">
-          <img className="more" src={more} alt="" />
+          <Link to="/products">
+            <img className="home" id="moreImg" src={more} alt="" />
+          </Link>
         </div>
         <div className="menu ">
-          <img className="lists" src={list} alt="" />
+          <Link to="/orders">
+            <img className="home" id="lists" src={list} alt="" />
+          </Link>
         </div>
       </div>
     </>

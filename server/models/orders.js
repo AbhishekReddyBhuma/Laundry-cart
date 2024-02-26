@@ -3,7 +3,7 @@ const ordersSchema = mongoose.Schema(
   {
     userId: {
       type: mongoose.Schema.ObjectId,
-      ref: "User",
+      ref: "user",
     },
     order: { type: Array, require: true },
 

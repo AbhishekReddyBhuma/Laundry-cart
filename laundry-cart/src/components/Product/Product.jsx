@@ -300,11 +300,15 @@ const Product = () => {
               />
             </td>
             <td>
-              {shirtsOrder.Quantity} X {shirtsOrder.initialAmount}=
-              {shirtsOrder.Quantity * shirtsOrder.initialAmount}
-              <button name="shirts" onClick={handleReset}>
-                Reset
-              </button>
+              <div className="resetbtn">
+                <span>
+                  {shirtsOrder.Quantity} X {shirtsOrder.initialAmount}=
+                  {shirtsOrder.Quantity * shirtsOrder.initialAmount}
+                </span>
+                <button name="shirts" onClick={handleReset}>
+                  Reset
+                </button>
+              </div>
             </td>
           </tr>
           <tr>
@@ -356,11 +360,15 @@ const Product = () => {
               />
             </td>
             <td>
-              {jeansOrder.Quantity} X {jeansOrder.initialAmount}=
-              {jeansOrder.Quantity * jeansOrder.initialAmount}
-              <button name="jeans" onClick={handleReset}>
-                Reset
-              </button>
+              <div className="resetbtn">
+                <span>
+                  {jeansOrder.Quantity} X {jeansOrder.initialAmount}=
+                  {jeansOrder.Quantity * jeansOrder.initialAmount}
+                </span>
+                <button name="jeans" onClick={handleReset}>
+                  Reset
+                </button>
+              </div>
             </td>
           </tr>
           <tr>
@@ -412,11 +420,15 @@ const Product = () => {
               />
             </td>
             <td>
-              {TshirtsOrder.Quantity} X {TshirtsOrder.initialAmount}=
-              {TshirtsOrder.Quantity * TshirtsOrder.initialAmount}
-              <button name="Tshirts" onClick={handleReset}>
-                Reset
-              </button>
+              <div className="resetbtn">
+                <span>
+                  {TshirtsOrder.Quantity} X {TshirtsOrder.initialAmount}=
+                  {TshirtsOrder.Quantity * TshirtsOrder.initialAmount}
+                </span>
+                <button name="jeans" onClick={handleReset}>
+                  Reset
+                </button>
+              </div>
             </td>
           </tr>
           <tr>
@@ -468,11 +480,15 @@ const Product = () => {
               />
             </td>
             <td>
-              {boxersOrder.Quantity} X {boxersOrder.initialAmount}=
-              {boxersOrder.Quantity * boxersOrder.initialAmount}
-              <button name="boxers" onClick={handleReset}>
-                Reste
-              </button>
+              <div className="resetbtn">
+                <span>
+                  {boxersOrder.Quantity} X {boxersOrder.initialAmount}=
+                  {boxersOrder.Quantity * boxersOrder.initialAmount}
+                </span>
+                <button name="jeans" onClick={handleReset}>
+                  Reset
+                </button>
+              </div>
             </td>
           </tr>
           <tr>
@@ -524,11 +540,15 @@ const Product = () => {
               />
             </td>
             <td>
-              {jogersOrder.Quantity} X {jogersOrder.initialAmount}=
-              {jogersOrder.Quantity * jogersOrder.initialAmount}
-              <button name="joggers" onClick={handleReset}>
-                Reset
-              </button>
+              <div className="resetbtn">
+                <span>
+                  {jogersOrder.Quantity} X {jogersOrder.initialAmount}=
+                  {jogersOrder.Quantity * jogersOrder.initialAmount}
+                </span>
+                <button name="jeans" onClick={handleReset}>
+                  Reset
+                </button>
+              </div>
             </td>
           </tr>
           <tr>
@@ -580,11 +600,15 @@ const Product = () => {
               />
             </td>
             <td>
-              {trousersOrder.Quantity} X {trousersOrder.initialAmount}=
-              {trousersOrder.Quantity * trousersOrder.initialAmount}
-              <button name="trousers" onClick={handleReset}>
-                Reset
-              </button>
+              <div className="resetbtn">
+                <span>
+                  {trousersOrder.Quantity} X {trousersOrder.initialAmount}=
+                  {trousersOrder.Quantity * trousersOrder.initialAmount}
+                </span>
+                <button name="jeans" onClick={handleReset}>
+                  Reset
+                </button>
+              </div>
             </td>
           </tr>
           <tr>
@@ -636,11 +660,15 @@ const Product = () => {
               />
             </td>
             <td>
-              {othersOrder.Quantity} X {othersOrder.initialAmount}=
-              {othersOrder.Quantity * othersOrder.initialAmount}
-              <button name="others" onClick={handleReset}>
-                Reset
-              </button>
+              <div className="resetbtn">
+                <span>
+                  {othersOrder.Quantity} X {othersOrder.initialAmount}=
+                  {othersOrder.Quantity * othersOrder.initialAmount}
+                </span>
+                <button name="jeans" onClick={handleReset}>
+                  Reset
+                </button>
+              </div>
             </td>
           </tr>
         </tbody>
