@@ -1,27 +1,17 @@
 const mongoose = require("mongoose");
-const ordersSchema = mongoose.Schema({
-  productsName: {
-    type: Array,
+const ordersSchema = mongoose.Schema(
+  {
+    userId: {
+      type: mongoose.Schema.ObjectId,
+      ref: "User",
+    },
+    order: { type: Array, require: true },
+
+    storeLoctaion: { type: String },
+    storeCite: { type: String },
+    storePhoneNumber: { type: Number },
   },
-  serviceType: {
-    type: Object,
-  },
-  quantity: {
-    type: Array,
-  },
-  totalQuantity: {
-    type: Number,
-  },
-  finalAmount: {
-    type: Number,
-  },
-  pickUpCharge: {
-    type: Number,
-  },
-  totalAmount: { type: Number },
-  storeLoctaion: { type: String },
-  storeCite: { type: String },
-  storePhoneNumber: { type: Number },
-});
+  { timestamps: true }
+);
 
 module.exports = mongoose.model("Orders", ordersSchema);

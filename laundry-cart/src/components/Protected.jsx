@@ -8,7 +8,6 @@ const Protected = (props) => {
     const token = localStorage.getItem("token");
     console.log(token);
     if (!token) {
-      alert("Please login First");
       navigate("/signin");
     }
   });
