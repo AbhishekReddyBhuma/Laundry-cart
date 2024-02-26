@@ -65,6 +65,7 @@
   }
 }
 .washType {
+  padding: 0 12px;
   height: 83px;
   margin: 0 auto;
   align-items: center;
