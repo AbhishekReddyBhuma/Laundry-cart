@@ -4,12 +4,27 @@ const ContextApi = createContext();
 
 const Context = ({ children }) => {
   const [Products, setProducts] = useState([]);
-  // const [userAddresses,setUserAddresses] = useState([]);
+  // const [summaryToggle,setSummaryToggle] = useState(false);
   let userAddress =[];
 
   console.log(localStorage.getItem("token"))
   const fetchUserAddresses = async () => {
     const response = await fetch("http://localhost:8080/users/fetchaddress",{
+      method:"GET",
+      headers: {
+        "Content-Type": "application/json",
+        Token: localStorage.getItem("token")
+      }
+    })
+    const result = await response.json();
+    console.log(result)
+    // setUserAddresses(result)
+    userAddress.push(result)
+    console.log(userAddress)
+  }
+
+  const fetchAllAddresses = async () => {
+    const response = await fetch("http://localhost:8080/api/getaddress",{
       method:"GET",
       headers: {
         "Content-Type": "application/json",
@@ -53,11 +68,12 @@ const Context = ({ children }) => {
   };
   useEffect(() => {
     fetchUserAddresses();
+    fetchAllAddresses();
   }, []);
  
 
   return (
-    <ContextApi.Provider value={{ Products, fetchPoduct ,userAddress, addNewAddress}}>
+    <ContextApi.Provider value={{ Products, fetchPoduct ,userAddress, addNewAddress, fetchAllAddresses}}>
       {children}
     </ContextApi.Provider>
   );

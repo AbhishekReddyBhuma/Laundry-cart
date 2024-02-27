@@ -2,16 +2,20 @@ import React, { useEffect, useState } from "react";
 import './OrderSummery.css';
 import tick from './tick.svg';
 import { contextProvider } from "../../Context/Context";
+import AddAddressForm from "../AddNewAddress/AddAddressForm";
+import { useNavigate } from "react-router-dom";
 
-const OrderSummery = ({ orders }) => {
+const OrderSummery = ({ orders , summaryToggle , setSummaryToggle}) => {
   //console.log(orders.length)
   const products = [];
   const product = [];
   const [address,setAddress] = useState("");
   const [phone,setPhone] = useState("");
-  const {userAddress, addNewAddress} = contextProvider();
+  const city = "Hyderabad";
+  const {userAddress} = contextProvider();
+  const navigate = useNavigate();
 
-  //console.log(userAddress);
+ 
 
   for (let i = 0; i < orders.length; i++) {
     let temp = [];
@@ -52,11 +56,12 @@ const OrderSummery = ({ orders }) => {
   const handlelocationChange = (e) => {
     if(e.target.value === ""){
       setAddress("");
-      setPhone("")
+      setPhone("");
     }
     else if(e.target.value === "Gachibowli"){
       setAddress("Plot.No-11,Near AMB mall");
-      setPhone("91 9923837113")
+      setPhone("91 9923837113");
+      setStoreCity("")
     }
     else if(e.target.value === "Kukatpally"){
       setAddress("Plot.No-45,Near JNTUH");
@@ -75,7 +80,7 @@ const OrderSummery = ({ orders }) => {
   return <div className="summaryPage-container">
     <div className="summary-title">
       <p className="title">Summary</p></div>
-    <div className="summary-close">x</div>
+    <div className="summary-close" onClick={() => setSummaryToggle(!summaryToggle)}>x</div>
     <div className="storeDetails-container">
       <select className="store-location" onChange={handlelocationChange}>
         <option id="none"></option>
@@ -109,8 +114,8 @@ const OrderSummery = ({ orders }) => {
           </tr>
         </thead>
         <tbody>
-          {product.map(itemOrder => {
-            return <tr className="item-order">
+          {product.map((itemOrder,id) => {
+            return <tr className="item-order" id={id}>
               <td className="Product">{itemOrder[0]}</td>
               <td className="Wash-type">{itemOrder[2].map((type, i) => {
                 if (i < itemOrder[2].length - 1) { return type + "," }
@@ -146,20 +151,18 @@ const OrderSummery = ({ orders }) => {
 
       <div className="userAddresses">
         <div className="userAddress-label">Address</div>
-          {
+        <div className="addresses-container">
+        {
             userAddress.map((data,i) => {
               return <div id={i} className="userAddress">
                 <img src={tick} />
-                {data.address}
-            </div>
+                <div className="user-address">{data.address.address}</div>
+              </div>
             })
           }
-        {/* <div id="1" className="userAddress">
-          <img src={tick} />
+        <div className="add-address" onClick={() => navigate("/products/api/add")}>ADD NEW</div>
         </div>
-        <div id="2" className="userAddress">
-          <img src={tick} />
-        </div> */}
+         
       </div>
     </div>
     <div className="summary-footer">

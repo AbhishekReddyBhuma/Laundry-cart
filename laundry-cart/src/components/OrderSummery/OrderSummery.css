@@ -7,7 +7,7 @@
     z-index: 10;
     top: 80px;
     left: 523px;
-    width: 918px;
+    width: 916px;
     height: 933px;
     /* UI Properties */
     background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -15,7 +15,8 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .summary-close {  
@@ -28,8 +29,7 @@
     font: normal normal 30px/25px Avenir;
     opacity: 1;
     position: absolute;
-    animation: ease-out;
-    animation-duration: 30ms;
+    cursor: pointer;
 }
 
 /* .hidden {
@@ -334,6 +334,7 @@
     float: left;
     top: 20px;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 .tick-hidden {
@@ -350,6 +351,34 @@
     position: relative;
 }
 
+.user-address {
+    position: relative;
+    top: 10px;
+    padding: 2px 1px;
+    overflow: hidden;
+}
+
+.add-address {
+    top: 50px;
+    left: 20px;
+    width: 90px;
+    height: 24px;
+    text-align: left;
+    font: normal normal bold 18px/24px Avenir;
+    letter-spacing: 0.18px;
+    color: #5861AE;
+    opacity: 1;
+    position: relative;
+    cursor: pointer;
+}
+
+.addresses-container {
+    display: flex;
+    width: auto;
+    height: auto;
+    position: relative;
+}
+
 .summary-footer {
     top: 250px;
     width: 926px;
@@ -362,15 +391,16 @@
 
 .confirm {
     top: 14px;
-left: 745px;
-width: 150px;
-height: 42px;
-background: #5861AE 0% 0% no-repeat padding-box;
-border-radius: 4px;
-border:0px;
-opacity: 1;
-color: #FFFFFF;
-position: relative;
+    left: 745px;
+    width: 150px;
+    height: 42px;
+    background: #5861AE 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    border: 0px;
+    opacity: 1;
+    color: #FFFFFF;
+    position: relative;
+    cursor: pointer;
 }
 
 .confirm:focus{

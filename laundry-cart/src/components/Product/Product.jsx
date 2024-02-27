@@ -14,6 +14,7 @@ import others from "./images/others.jpg";
 
 import "./product.css";
 import OrderSummery from "../OrderSummery/OrderSummery";
+import { Outlet } from "react-router-dom";
 
 const Product = () => {
   const { fetchPoduct } = contextProvider();
@@ -26,11 +27,9 @@ const Product = () => {
     boxersQuantity: 0,
     othersQuantity: 0,
   };
-  const [ProductName, setProductName] = useState("");
-
-  const [Quantity, setQuantity] = useState(initals);
 
   const [summaryToggle,setSummaryToggle] = useState(false);
+  console.log(summaryToggle);
 
   const [Orders, setOrders] = useState([]);
   // order should have objects to store { product name quantity {wash-type with price} and final price}
@@ -123,7 +122,6 @@ const Product = () => {
       });
     }
   };
-  console.log(shirtsOrder);
 
   const handleProceed = () => {
     setOrders([
@@ -135,12 +133,11 @@ const Product = () => {
       othersOrder,
       jogersOrder,
     ]);
-    setSummaryToggle(true)
+    setSummaryToggle(!summaryToggle);
+    
   };
-  console.log(Orders);
+  console.log(summaryToggle)
   const handleClick = (e) => {
-    // console.log(e.target.id);
-
     if (e.target.name === "Shirts") {
       setshirtsOrder({
         ...shirtsOrder,
@@ -185,7 +182,6 @@ const Product = () => {
       });
     }
   };
-  console.log(Orders);
 
   const handleReset = (e) => {
     if (e.target.name === "Others") {
@@ -242,7 +238,8 @@ const Product = () => {
 
   return (
     <div>
-      {summaryToggle && <OrderSummery orders={Orders} />}
+      {summaryToggle && <OrderSummery orders={Orders} summaryToggle={summaryToggle} setSummaryToggle={setSummaryToggle} />}
+      <Outlet/>
       <div id="products">
         <table>
           <thead>
