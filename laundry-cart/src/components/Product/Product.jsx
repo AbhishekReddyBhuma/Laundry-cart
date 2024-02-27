@@ -121,7 +121,6 @@ const Product = () => {
       });
     }
   };
-  console.log(shirtsOrder);
 
   const handleProceed = () => {
     setOrders([
@@ -133,12 +132,13 @@ const Product = () => {
       othersOrder,
       jogersOrder,
     ]);
-    fetchPoduct(Orders);
+    if (Orders.length !== 0) {
+      fetchPoduct(Orders);
+    }
+    console.log(Orders);
   };
-  console.log(Orders);
-  const handleClick = (e) => {
-    console.log(e.target.id);
 
+  const handleClick = (e) => {
     if (e.target.name === "shirts") {
       setshirtsOrder({
         ...shirtsOrder,

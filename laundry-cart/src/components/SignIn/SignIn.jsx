@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./SignIn.css";
 import padlock from "./padlock.svg";
 import { useNavigate } from "react-router-dom";
@@ -22,9 +22,9 @@ const SignIn = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((res) => setToken(res.token));
+      .then((res) => localStorage.setItem("token", res.token));
   };
-  // console.log(Token);
+  console.log(Token);
 
   function getInputChangeHandler(key) {
     return (e) => {
@@ -40,7 +40,7 @@ const SignIn = () => {
   return (
     <form
       method="POST"
-      action="/signIn"
+      action="/"
       onSubmit={(e) => {
         e.preventDefault();
         signInApi(credentials);

@@ -10,10 +10,12 @@ import ProductsPage from "./Pages/ProductsPage";
 import Protected from "./components/Protected";
 // import Orders from "./components/PastOrders/Orders";
 import OrdersPage from "./Pages/OrdersPage";
+// import OrderConfirm from "./components/orderConfirm/OrderConfirm";
 
 function App() {
   return (
     <>
+      {/* <OrderConfirm /> */}
       <BrowserRouter>
         <div className="app-conatiner">
           <NavBar />
