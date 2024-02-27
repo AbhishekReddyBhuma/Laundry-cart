@@ -15,14 +15,14 @@
   /* background: #ffffff 0% 0% no-repeat padding-box; */
   opacity: 1;
 }
-.home {
+#home {
   width: 22px;
   height: 22px;
   background: transparent url("./home-run\ \(1\).png") 0% 0% no-repeat
     padding-box;
   opacity: 1;
 }
-.more {
+#moreImg {
   width: 22px;
   height: 22px;
 
@@ -32,7 +32,7 @@
 #more {
   background: #ffffff 0% 0% no-repeat padding-box;
 }
-.lists {
+#lists {
   width: 25px;
   height: 18px;
   opacity: 1;

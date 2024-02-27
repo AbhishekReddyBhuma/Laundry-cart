@@ -3,42 +3,33 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const users = require("../models/users");
+const Users = require("../models/users");
+const verifyToken = require("../middleware/verifyToken");
 const secret_key = "ABC";
 
 router.post("/register", async (req, res) => {
-  //   console.log(req.body);
-  const {
-    name,
-    email,
-    password,
-    phoneNumber,
-    address,
-    state,
-    district,
-    pinCode,
-  } = req.body;
+  console.log(req.body.address);
+  const { name, email, password, phoneNumber } = req.body.data;
+
   try {
-    const userExist = await users.findOne({ email });
+    const userExist = await Users.findOne({ email });
     if (userExist) {
       res.status(400).json({ message: "email is already registered" });
     } else {
       const securePassword = await bcrypt.hash(password, 10);
-      const user = await users.create({
+      const user = await Users.create({
         name,
         email,
         password: securePassword,
         phoneNumber,
-        address,
-        state,
-        district,
-        pinCode,
+        address: req.body.address,
       });
       const data = { user: user.id };
       const token = jwt.sign(data, secret_key);
       res.status(200).json({
         message: "Registration successful",
         token,
+        user,
       });
     }
   } catch (e) {
@@ -49,9 +40,12 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/signin", async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, phoneNumber } = req.body;
   try {
-    const userExist = await users.findOne({ email });
+    const userExist = phoneNumber
+      ? await Users.findOne({ phoneNumber })
+      : await Users.findOne({ email });
+
     if (!userExist) {
       res.status(400).json({ message: "credentials invalid" });
     } else {
@@ -70,7 +64,34 @@ router.post("/signin", async (req, res) => {
     }
   } catch (error) {
     res.status(400).json({
-      error: e.message,
+      error: error.message,
+    });
+  }
+});
+
+router.put("/newaddress", verifyToken, async (req, res) => {
+  try {
+    const { newAddress } = req.body;
+    console.log(newAddress);
+    const user = await Users.findByIdAndUpdate(
+      { _id: req.user },
+      { newAddress }
+    );
+    res.status(200).json({ message: "new address added sucessfully", user });
+  } catch (error) {
+    res.status(400).json({
+      error: error.message,
+    });
+  }
+});
+
+router.get("/fetchaddress", verifyToken, async (req, res) => {
+  try {
+    const address = await Users.findOne({ _id: req.user }, "address");
+    res.status(200).json(address);
+  } catch (error) {
+    res.status(400).json({
+      error: error.message,
     });
   }
 });

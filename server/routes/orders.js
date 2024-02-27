@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const orders = require("../models/orders");
+const Orders = require("../models/orders");
 
 router.get("/all", async (req, res) => {
   try {
@@ -16,17 +16,16 @@ router.get("/all", async (req, res) => {
 });
 
 router.post("/create/order", async (req, res) => {
-  const { productsName, serviceType, quantity, finalAmount, pickUpCharge } =
-    req.body;
+  const { order, storeLoctaion, storeCity, storePhoneNumber } = req.body;
   try {
-    const order = await orders.create({
-      productsName,
-      serviceType,
-      quantity,
-      finalAmount,
-      pickUpCharge,
+    const orders = await Orders.create({
+      order,
+      storeLoctaion,
+      storeCity,
+      storePhoneNumber,
+      userId: req.user,
     });
-    res.status(200).json(order);
+    res.status(200).json(orders);
   } catch (error) {
     res.status(400).json({
       error: e.message,

@@ -16,7 +16,7 @@ import "./product.css";
 import OrderSummery from "../OrderSummery/OrderSummery";
 
 const Product = () => {
-  const { Products } = contextProvider();
+  const { fetchPoduct } = contextProvider();
   const initals = {
     shirtsQuantity: 0,
     tshirtsQuantity: 0,
@@ -137,6 +137,7 @@ const Product = () => {
     ]);
     setSummaryToggle(true)
   };
+  console.log(Orders);
   const handleClick = (e) => {
     // console.log(e.target.id);
 

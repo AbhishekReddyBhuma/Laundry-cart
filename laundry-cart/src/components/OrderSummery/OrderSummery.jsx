@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './OrderSummery.css';
 import tick from './tick.svg';
+import { contextProvider } from "../../Context/Context";
 
 const OrderSummery = ({ orders }) => {
   //console.log(orders.length)
@@ -8,8 +9,9 @@ const OrderSummery = ({ orders }) => {
   const product = [];
   const [address,setAddress] = useState("");
   const [phone,setPhone] = useState("");
-  //const [userAddresses,setUserAddresses] = useState([]);
-  //const [style,setStyle] = useState("summaryPage-container");
+  const {userAddress, addNewAddress} = contextProvider();
+
+  //console.log(userAddress);
 
   for (let i = 0; i < orders.length; i++) {
     let temp = [];
@@ -144,12 +146,20 @@ const OrderSummery = ({ orders }) => {
 
       <div className="userAddresses">
         <div className="userAddress-label">Address</div>
-        <div id="1" className="userAddress">
+          {
+            userAddress.map((data,i) => {
+              return <div id={i} className="userAddress">
+                <img src={tick} />
+                {data.address}
+            </div>
+            })
+          }
+        {/* <div id="1" className="userAddress">
           <img src={tick} />
         </div>
         <div id="2" className="userAddress">
           <img src={tick} />
-        </div>
+        </div> */}
       </div>
     </div>
     <div className="summary-footer">
