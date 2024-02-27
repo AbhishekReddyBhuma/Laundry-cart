@@ -3,7 +3,8 @@ import { createContext, useContext, useEffect, useState } from "react";
 const ContextApi = createContext();
 
 const Context = ({ children }) => {
-  const [Products, setProducts] = useState([]);
+  const pastOrders = [];
+  let Products = [];
   // const [userAddresses,setUserAddresses] = useState([]);
   let userAddress = [];
 
@@ -58,7 +59,12 @@ const Context = ({ children }) => {
       },
     });
     const result = await response.json();
-    console.log(result.pastOrders);
+    const finalResult = result.pastOrders;
+    console.log(finalResult);
+    Products.push(...finalResult);
+    for (let i = 0; i < Products.length; i++) {
+      pastOrders.push(Products[i].order);
+    }
   };
 
   useEffect(() => {
@@ -68,7 +74,13 @@ const Context = ({ children }) => {
 
   return (
     <ContextApi.Provider
-      value={{ Products, createNewOrdrer, userAddress, addNewAddress }}
+      value={{
+        Products,
+        createNewOrdrer,
+        userAddress,
+        addNewAddress,
+        pastOrders,
+      }}
     >
       {children}
     </ContextApi.Provider>

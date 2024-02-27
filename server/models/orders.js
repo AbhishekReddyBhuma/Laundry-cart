@@ -5,7 +5,7 @@ const ordersSchema = mongoose.Schema(
       type: mongoose.Schema.ObjectId,
       ref: "user",
     },
-    order: { type: Object, require: true },
+    order: { type: Array, require: true },
 
     storeLoctaion: { type: String },
     storeCite: { type: String },
