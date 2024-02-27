@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import './OrderSummery.css';
-import tick from './tick.svg';
+import { Link } from "react-router-dom";
+import "./OrderSummery.css";
+import tick from "./tick.svg";
 import { contextProvider } from "../../Context/Context";
 import AddAddressForm from "../AddNewAddress/AddAddressForm";
 import { useNavigate } from "react-router-dom";
@@ -23,20 +24,20 @@ const OrderSummery = ({ orders , summaryToggle , setSummaryToggle}) => {
     temp.push(orders[i].Quantity);
     temp.push(orders[i].washType);
     temp.push(orders[i].initialAmount);
-    temp.push(orders[i].Quantity*orders[i].initialAmount)
+    temp.push(orders[i].Quantity * orders[i].initialAmount);
     products.push(temp);
   }
-  products.filter(itemOrder => {
+  products.filter((itemOrder) => {
     if (!(itemOrder[0] === "")) {
-      product.push(itemOrder)
+      product.push(itemOrder);
     }
-  })
+  });
   let subTotal = 0;
   let pickUpCharges = 0;
 
   for (let i = 0; i < product.length; i++) {
-    subTotal+=product[i][4];
-    pickUpCharges+=(product[i][1]*6)
+    subTotal += product[i][4];
+    pickUpCharges += product[i][1] * 6;
   }
 
   // useEffect("",{
@@ -49,29 +50,24 @@ const OrderSummery = ({ orders , summaryToggle , setSummaryToggle}) => {
   //     data
   // )}).then(res => res.json())
   //       .then(setUserAddresses(res.address))
-  
-  
+
   //console.log(product)
 
   const handlelocationChange = (e) => {
-    if(e.target.value === ""){
+    if (e.target.value === "") {
       setAddress("");
       setPhone("");
     }
     else if(e.target.value === "Gachibowli"){
       setAddress("Plot.No-11,Near AMB mall");
       setPhone("91 9923837113");
-      setStoreCity("")
-    }
-    else if(e.target.value === "Kukatpally"){
+    } else if (e.target.value === "Kukatpally") {
       setAddress("Plot.No-45,Near JNTUH");
-      setPhone("91 9923837143")
-    }
-    else if(e.target.value === "Dilsukhnagar"){
+      setPhone("91 9923837143");
+    } else if (e.target.value === "Dilsukhnagar") {
       setAddress("Plot.No-6,Near Bus stand");
-      setPhone("91 9923837173")
-    }
-    else if(e.target.value === "Nampally"){
+      setPhone("91 9923837173");
+    } else if (e.target.value === "Nampally") {
       setAddress("Plot.No-21,Near metro station");
       setPhone("91 9923837153")
     } 
@@ -168,7 +164,8 @@ const OrderSummery = ({ orders , summaryToggle , setSummaryToggle}) => {
     <div className="summary-footer">
       <button className="confirm">Confirm</button>
     </div>
-  </div>;
+    </div>
+  ;
 };
 
 export default OrderSummery;

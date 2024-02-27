@@ -4,7 +4,7 @@ const Orders = require("../models/orders");
 
 router.get("/all", async (req, res) => {
   try {
-    const pastOrders = await orders.find();
+    const pastOrders = await Orders.find();
     res.status(200).json({
       pastOrders,
     });

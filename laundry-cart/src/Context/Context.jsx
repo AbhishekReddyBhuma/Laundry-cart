@@ -7,21 +7,21 @@ const Context = ({ children }) => {
   // const [summaryToggle,setSummaryToggle] = useState(false);
   let userAddress =[];
 
-  console.log(localStorage.getItem("token"))
+  console.log(localStorage.getItem("token"));
   const fetchUserAddresses = async () => {
-    const response = await fetch("http://localhost:8080/users/fetchaddress",{
-      method:"GET",
+    const response = await fetch("http://localhost:8080/users/fetchaddress", {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Token: localStorage.getItem("token")
-      }
-    })
+        Token: localStorage.getItem("token"),
+      },
+    });
     const result = await response.json();
-    console.log(result)
+    console.log(result);
     // setUserAddresses(result)
-    userAddress.push(result)
-    console.log(userAddress)
-  }
+    userAddress.push(result);
+    console.log(userAddress);
+  };
 
   const fetchAllAddresses = async () => {
     const response = await fetch("http://localhost:8080/api/getaddress",{
@@ -38,42 +38,53 @@ const Context = ({ children }) => {
     console.log(userAddress)
   }
 
-  const addNewAddress = async(address) => {
-    const response = await fetch("http://localhost:8080/api/add",{
-      method:"POST",
-      headers:{
+  const addNewAddress = async (address) => {
+    const response = await fetch("http://localhost:8080/api/add", {
+      method: "POST",
+      headers: {
         "Content-Type": "application/json",
-        Token: localStorage.getItem("token")
+        Token: localStorage.getItem("token"),
       },
-      body:JSON.stringify(address)
-    })
+      body: JSON.stringify(address),
+    });
     const result = await response.json();
     console.log(result);
-  }
+  };
 
-  const fetchPoduct = async (order) => {
-    console.log(order);
-    
+  const createNewOrdrer = async (order) => {
     const respose = await fetch("http://localhost:8080/orders/create/order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Token: localStorage.getItem("token"),
       },
-      body: JSON.stringify(order),
+      body: JSON.stringify({ order }),
     });
     // console.log(await respose.json());
     const result = await respose.json();
     console.log(result);
   };
+  const getAllPastOrders = async () => {
+    const response = await fetch("http://localhost:8080/orders/all", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Token: localStorage.getItem("token"),
+      },
+    });
+    const result = await response.json();
+    console.log(result.pastOrders);
+  };
+
   useEffect(() => {
     fetchUserAddresses();
     fetchAllAddresses();
   }, []);
- 
 
   return (
-    <ContextApi.Provider value={{ Products, fetchPoduct ,userAddress, addNewAddress, fetchAllAddresses}}>
+    <ContextApi.Provider
+      value={{ Products, createNewOrdrer, userAddress, addNewAddress, fetchAllAddresses }}
+    >
       {children}
     </ContextApi.Provider>
   );

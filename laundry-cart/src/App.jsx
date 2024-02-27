@@ -15,6 +15,7 @@ import AddAddressForm from "./components/AddNewAddress/AddAddressForm";
 function App() {
   return (
     <>
+      {/* <OrderConfirm /> */}
       <BrowserRouter>
         <div className="app-conatiner">
           <NavBar />

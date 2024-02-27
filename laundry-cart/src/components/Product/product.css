@@ -41,7 +41,6 @@
         border-radius: 2px;
         opacity: 1;
         text-align: center;
-        
       }
     }
   }
@@ -91,7 +90,7 @@
   opacity: 1;
 }
 
-.hidden{
+.hidden {
   position: relative;
   top: 0;
   left: 0;

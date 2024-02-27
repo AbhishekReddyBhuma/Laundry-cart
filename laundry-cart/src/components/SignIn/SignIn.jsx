@@ -46,7 +46,7 @@ const SignIn = () => {
       onSubmit={(e) => {
         e.preventDefault();
         signInApi(credentials);
-        // localStorage.setItem("token", Token);
+        
         if(localStorage.getItem("token")){
           navigation("/products")
         }

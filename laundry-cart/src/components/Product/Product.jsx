@@ -28,8 +28,7 @@ const Product = () => {
     othersQuantity: 0,
   };
 
-  const [summaryToggle,setSummaryToggle] = useState(false);
-  console.log(summaryToggle);
+  const [summaryToggle, setSummaryToggle] = useState(false);
 
   const [Orders, setOrders] = useState([]);
   // order should have objects to store { product name quantity {wash-type with price} and final price}

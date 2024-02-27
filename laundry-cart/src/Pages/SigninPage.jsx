@@ -27,7 +27,7 @@ const Home = () => {
                 <button
                   className="register"
                   onClick={(e) => {
-                    console.log("register clicked")
+                    console.log("register clicked");
                     setRegisterToggle(true);
                     setRedesign([
                       "brand-name-small",
@@ -38,7 +38,7 @@ const Home = () => {
                 >
                   Register
                 </button>
-             </>
+              </>
             ) : (
               <>
                 <div className="have-account">Already Have Account</div>
@@ -58,7 +58,7 @@ const Home = () => {
         <div className="div-line"></div>
         {!registerToggle ? (
           <div className="signIn-form">
-            <SignIn/>
+            <SignIn />
           </div>
         ) : (
           <Register />

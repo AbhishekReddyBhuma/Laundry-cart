@@ -4,10 +4,13 @@ const newaddressSchema = mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: "user",
   },
-  address: String,
-  state: String,
-  district: String,
-  pinCode: String,
+  address: {
+    address: String,
+    state: String,
+    district: String,
+    pinCode: String,
+    phoneNumber: String,
+  },
 });
 const newAddressModel = mongoose.model("newaddres", newaddressSchema);
 module.exports = newAddressModel;
