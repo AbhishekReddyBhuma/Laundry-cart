@@ -123,6 +123,7 @@ const Product = () => {
       });
     }
   };
+  console.log(shirtsOrder);
 
   const handleProceed = () => {
     setOrders([

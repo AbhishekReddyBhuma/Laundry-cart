@@ -1,89 +1,91 @@
 .register-form {
-    width: 1038px;
-    background-color: #B9C0FD1A;
-    padding-left: 63px;
-    height: 769px;
+  width: 1038px;
+  background-color: #b9c0fd1a;
+  padding-left: 63px;
+  height: 769px;
 }
 
 .register-title {
-    top:45px;
-    width: 157px;
-height: 44px;
-text-align: left;
-font: normal normal 32px/60px Avenir;
-letter-spacing: 1.28px;
-color: #5861AE;
-text-transform: uppercase;
-opacity: 1;
-    position: relative;
+  top: 45px;
+  width: 157px;
+  height: 44px;
+  text-align: left;
+  font: normal normal 32px/60px Avenir;
+  letter-spacing: 1.28px;
+  color: #5861ae;
+  text-transform: uppercase;
+  opacity: 1;
+  position: relative;
 }
 
 .register-form form {
-    width: 945px;
-    gap: 2rem;
-    top: 220px;
+  width: 945px;
+  gap: 2rem;
+  top: 220px;
 }
 
 .register-form .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 945px;
-    gap: 2rem;
-    top: 220px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 945px;
+  gap: 2rem;
+  top: 220px;
 }
 
-.register-form form input,select {
-    width: 380px;
-    padding: 22px 5px;
-    border: 0px;
-    box-sizing: border-box;
-    border-bottom: 1px solid gray;
-    background:transparent;
+.register-form form input,
+select {
+  width: 380px;
+  padding: 22px 5px;
+  border: 0px;
+  box-sizing: border-box;
+  border-bottom: 1px solid gray;
+  background: transparent;
 }
 
-.register-form input:focus ,.register-form select:focus{
-    outline: none;
+.register-form input:focus,
+.register-form select:focus {
+  outline: none;
 }
 
 .terms {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 37px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 37px;
 }
 
 .terms #terms {
-    width:22px;
-    height: 22px;
-    cursor: pointer;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
 }
 
 .terms label {
-    width: 566px;
-    height: 22px;
-    text-align: left;
-    text-decoration: underline;
-    font: normal normal normal 14px/20px Avenir;
-    letter-spacing: 0.49px;
-    color: #5861AE;
-    opacity: 1;
-    padding-top: 3px;
-    padding-left: 12px;
-    cursor: pointer;
+  width: 566px;
+  height: 22px;
+  text-align: left;
+  text-decoration: underline;
+  font: normal normal normal 14px/20px Avenir;
+  letter-spacing: 0.49px;
+  color: #5861ae;
+  opacity: 1;
+  padding-top: 3px;
+  padding-left: 12px;
+  cursor: pointer;
 }
 
 form button {
-    width: 150px;
-    height: 50px;
-    background: #5861AE 0% 0% no-repeat padding-box;
-    border-radius: 4px;
-    opacity: 1;
-    top: -12px;
-    position: relative;
-    border: 0px;
-    color: #FFFFFF;
+  width: 150px;
+  height: 50px;
+  background: #5861ae 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  opacity: 1;
+  top: -12px;
+  position: relative;
+  border: 0px;
+  color: #ffffff;
 }
 
 form button:hover {
-    cursor: pointer;
-    box-shadow: 2px 4px 15px 3px lightslategray;
+  cursor: pointer;
+  box-shadow: 2px 4px 15px 3px lightslategray;
 }
