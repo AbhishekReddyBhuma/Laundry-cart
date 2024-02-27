@@ -13,8 +13,10 @@ const OrderSummery = ({ orders , summaryToggle , setSummaryToggle}) => {
   const [address,setAddress] = useState("");
   const [phone,setPhone] = useState("");
   const city = "Hyderabad";
-  const {userAddress} = contextProvider();
+  const {userAddress, createNewOrder} = contextProvider();
   const navigate = useNavigate();
+  const [selectAddress,setSelectAddress] = useState("")
+  const [checked,setChecked] = useState("");
 
  
 
@@ -32,6 +34,7 @@ const OrderSummery = ({ orders , summaryToggle , setSummaryToggle}) => {
       product.push(itemOrder);
     }
   });
+  
   let subTotal = 0;
   let pickUpCharges = 0;
 
@@ -39,20 +42,12 @@ const OrderSummery = ({ orders , summaryToggle , setSummaryToggle}) => {
     subTotal += product[i][4];
     pickUpCharges += product[i][1] * 6;
   }
-
-  // useEffect("",{
-  //   method:"GET",
-  //   headers:{
-  //     'accept' : "application/json",
-  //     'content-type' : "application/json"
-  // },
-  // body: JSON.stringify(
-  //     data
-  // )}).then(res => res.json())
-  //       .then(setUserAddresses(res.address))
-
-  //console.log(product)
-
+  
+  const handleAddressChange = (id) => {
+    setSelectAddress(userAddress[id].address)
+    setChecked(id) 
+  } 
+ 
   const handlelocationChange = (e) => {
     if (e.target.value === "") {
       setAddress("");
@@ -72,6 +67,11 @@ const OrderSummery = ({ orders , summaryToggle , setSummaryToggle}) => {
       setPhone("91 9923837153")
     } 
   }
+
+  const handleCreateOrder = () => {
+    createNewOrder(product,address,city,phone,selectAddress)
+  }
+
   
   return <div className="summaryPage-container">
     <div className="summary-title">
@@ -111,7 +111,7 @@ const OrderSummery = ({ orders , summaryToggle , setSummaryToggle}) => {
         </thead>
         <tbody>
           {product.map((itemOrder,id) => {
-            return <tr className="item-order" id={id}>
+            return <tr className="item-order" key={id}>
               <td className="Product">{itemOrder[0]}</td>
               <td className="Wash-type">{itemOrder[2].map((type, i) => {
                 if (i < itemOrder[2].length - 1) { return type + "," }
@@ -149,10 +149,14 @@ const OrderSummery = ({ orders , summaryToggle , setSummaryToggle}) => {
         <div className="userAddress-label">Address</div>
         <div className="addresses-container">
         {
-            userAddress.map((data,i) => {
-              return <div id={i} className="userAddress">
-                <img src={tick} />
-                <div className="user-address">{data.address.address}</div>
+            userAddress.map((data,index) => {
+              console.log(data)
+              return <div key={index} className="userAddress" onClick={() => handleAddressChange(index)}>
+                <div className="address-top">
+                  <div className="address-type">{data.title}</div>
+                  {(checked === index) && <img src={tick} />}
+                </div>
+                <div className="user-address">{data.address}</div>
               </div>
             })
           }
@@ -162,7 +166,7 @@ const OrderSummery = ({ orders , summaryToggle , setSummaryToggle}) => {
       </div>
     </div>
     <div className="summary-footer">
-      <button className="confirm">Confirm</button>
+      <button className="confirm" onClick={handleCreateOrder}>Confirm</button>
     </div>
     </div>
   ;

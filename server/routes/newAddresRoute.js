@@ -5,13 +5,11 @@ const router = express.Router();
 
 router.post("/add", verifyToken, async (req, res) => {
   try {
-    const { address, state, district, pinCode } = req.body;
+    const { address} = req.body;
+    console.log(req.body)
     const newAddress = await NewAddress.create({
       userId: req.user,
       address,
-      state,
-      district,
-      pinCode,
     });
     res
       .status(200)
@@ -21,9 +19,9 @@ router.post("/add", verifyToken, async (req, res) => {
   }
 });
 
-router.get("/getaddress", async (req, res) => {
+router.get("/getaddress", verifyToken,async (req, res) => {
   try {
-    const AllAdress = await NewAddress.findOne({ userId: req.user }).populate(
+    const AllAdress = await NewAddress.find({ userId: req.user }).populate(
       "userId",
       "address"
     );

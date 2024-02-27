@@ -17,7 +17,7 @@ import OrderSummery from "../OrderSummery/OrderSummery";
 import { Outlet } from "react-router-dom";
 
 const Product = () => {
-  const { fetchPoduct } = contextProvider();
+  const {userAddress, createNewOrder, fetchAllAddresses, fetchUserAddresses} = contextProvider();
   const initals = {
     shirtsQuantity: 0,
     tshirtsQuantity: 0,
@@ -133,7 +133,8 @@ const Product = () => {
       jogersOrder,
     ]);
     setSummaryToggle(!summaryToggle);
-    
+    // fetchAllAddresses();
+    // fetchUserAddresses();
   };
   console.log(summaryToggle)
   const handleClick = (e) => {

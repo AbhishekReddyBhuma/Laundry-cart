@@ -17,10 +17,9 @@ const Context = ({ children }) => {
       },
     });
     const result = await response.json();
-    console.log(result);
+    // console.log(result);
     // setUserAddresses(result)
-    userAddress.push(result);
-    console.log(userAddress);
+    userAddress.push(result.address);
   };
 
   const fetchAllAddresses = async () => {
@@ -32,9 +31,11 @@ const Context = ({ children }) => {
       }
     })
     const result = await response.json();
-    console.log(result)
     // setUserAddresses(result)
-    userAddress.push(result)
+    for (let i = 0; i < result.length; i++){
+      userAddress.push(result[i].address)
+    }
+    
     console.log(userAddress)
   }
 
@@ -45,20 +46,26 @@ const Context = ({ children }) => {
         "Content-Type": "application/json",
         Token: localStorage.getItem("token"),
       },
-      body: JSON.stringify(address),
+      body: JSON.stringify({address}),
     });
     const result = await response.json();
-    console.log(result);
+
   };
 
-  const createNewOrdrer = async (order) => {
+  const createNewOrder = async (product,address,city,phone,selectAddress) => {
     const respose = await fetch("http://localhost:8080/orders/create/order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Token: localStorage.getItem("token"),
       },
-      body: JSON.stringify({ order }),
+      body: JSON.stringify({
+        order:product,
+        storeLocation: address,
+        storeCity: city,
+        storePhoneNumber: phone,
+        userAddress:selectAddress
+      } ),
     });
     // console.log(await respose.json());
     const result = await respose.json();
@@ -83,7 +90,7 @@ const Context = ({ children }) => {
 
   return (
     <ContextApi.Provider
-      value={{ Products, createNewOrdrer, userAddress, addNewAddress, fetchAllAddresses }}
+      value={{ Products, createNewOrder, userAddress, addNewAddress, fetchAllAddresses , fetchUserAddresses}}
     >
       {children}
     </ContextApi.Provider>

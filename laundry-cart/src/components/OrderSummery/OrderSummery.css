@@ -334,6 +334,7 @@
     float: left;
     top: 20px;
     margin-right: 20px;
+    margin-bottom: 20px;
     cursor: pointer;
 }
 
@@ -341,21 +342,32 @@
     display: none;
 }
 
-.userAddress img {
-    left: 206px;
-    top: 10px;
-    width: 17px;
-    height: 17px;
-    background: transparent url('./tick.svg') 0% 0% no-repeat padding-box;
+.address-type {
+    top: 4px;
+    left: 8px;
+    width: 54px;
+    height: 24px;
+    text-align: left;
+    font: normal normal bold 18px/24px Avenir;
+    letter-spacing: 0.18px;
+    color: #3E3F40;
     opacity: 1;
     position: relative;
 }
 
+.userAddress img {
+    width: 17px;
+    height: 17px;
+    padding-top: 7px;
+    padding-left: 156px;
+    background: transparent url(/tick.svg) 0% 0% no-repeat padding-box;
+}
+
 .user-address {
-    position: relative;
-    top: 10px;
-    padding: 2px 1px;
-    overflow: hidden;
+    width: 214px;
+    height: 28px;
+    padding: 10px 10px;
+    overflow-y: scroll;
 }
 
 .add-address {
@@ -377,6 +389,13 @@
     width: auto;
     height: auto;
     position: relative;
+    flex-wrap: wrap;
+}
+
+.address-top {
+    display: flex;
+    position: relative;
+    margin-bottom: 5px;
 }
 
 .summary-footer {

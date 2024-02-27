@@ -19,10 +19,6 @@ const handleChange = (e) => {
     [e.target.name]:e.target.value})
 }
 
-// const handleSubmit = (e) => {
-//     e.preventdefault();
-//     addNewAddress(newAddress)
-// }
 
   return (
       <div className='addNewAddress-container'>
@@ -37,6 +33,7 @@ const handleChange = (e) => {
               <input className='new-district' name='district' onChange={handleChange} />
               <input className='new-pinCode' name='pinCode' onChange={handleChange} />
               <input className='new-phoneNumber' name='phoneNumber' onChange={handleChange} />
+              <input className='save-as' name='title' onChange={handleChange} />
               <button type='Submit'>Add</button>
           </form>
       </div>

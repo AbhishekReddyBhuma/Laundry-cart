@@ -20,6 +20,7 @@ const UsersSchema = mongoose.Schema(
       state: String,
       district: String,
       pinCode: String,
+      title:{type:String,default:"Home"}
     },
     newAddress: Array,
   },
