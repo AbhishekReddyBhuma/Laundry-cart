@@ -1,12 +1,13 @@
 #products {
   position: relative;
+  z-index: 0;
   table {
     position: absolute;
     top: 105px;
     left: 90px;
     width: 1295px;
     height: 628px;
-
+    border-collapse: collapse;
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     opacity: 1;
@@ -27,7 +28,11 @@
       }
     }
     tbody tr {
+      border-bottom: 1px solid lightgray;
       height: 83px;
+      td {
+        border: 0px;
+      }
       td input {
         width: 63px;
         height: 26px;
@@ -36,6 +41,7 @@
         border-radius: 2px;
         opacity: 1;
         text-align: center;
+        
       }
     }
   }
@@ -84,8 +90,13 @@
   border-radius: 2px;
   opacity: 1;
 }
-.resetbtn {
-  padding: 0 22px;
-  display: flex;
-  justify-content: space-between;
+
+.hidden{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 1295px;
+  height: 934px;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 4; /* Ensure the overlay is above the main content */
 }

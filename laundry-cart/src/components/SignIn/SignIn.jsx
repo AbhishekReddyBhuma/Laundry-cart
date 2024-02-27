@@ -45,7 +45,7 @@ const SignIn = () => {
         e.preventDefault();
         signInApi(credentials);
         localStorage.setItem("token", Token);
-        navigation("/products");
+        Token?navigation("/products"):navigation("/signin")
       }}
     >
       <span className="signIn-title">SIGN IN</span>
@@ -54,7 +54,7 @@ const SignIn = () => {
         placeholder="Mobile/Email"
         value={credentials.email || credentials.phoneNumber}
         onChange={(e) => {
-          /[0-9]/.test(e.target.value)
+          (/[0-9]/.test(e.target.value))
             ? setCredentials((credentials) => {
                 return {
                   ...credentials,
