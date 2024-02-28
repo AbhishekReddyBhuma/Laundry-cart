@@ -12,6 +12,8 @@ const OrderSummery = ({ orders }) => {
   const product = [];
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
+  const [storeLocation, setstoreLocation] = useState("");
+
   const city = "Hyderabad";
   const {
     userAddress,
@@ -52,6 +54,7 @@ const OrderSummery = ({ orders }) => {
     subTotal += product[i][4];
     pickUpCharges += product[i][1] * 6;
   }
+  let finalQuantity = pickUpCharges / 6;
   console.log(userAddress);
   const handleAddressChange = (id) => {
     setSelectAddress(userAddress[id].address);
@@ -64,26 +67,39 @@ const OrderSummery = ({ orders }) => {
       setPhone("");
     } else if (e.target.value === "Gachibowli") {
       setAddress("Plot.No-11,Near AMB mall");
+      setstoreLocation(e.target.value);
       setPhone("91 9923837113");
     } else if (e.target.value === "Kukatpally") {
       setAddress("Plot.No-45,Near JNTUH");
+      setstoreLocation(e.target.value);
       setPhone("91 9923837143");
     } else if (e.target.value === "Dilsukhnagar") {
       setAddress("Plot.No-6,Near Bus stand");
+      setstoreLocation(e.target.value);
       setPhone("91 9923837173");
     } else if (e.target.value === "Nampally") {
       setAddress("Plot.No-21,Near metro station");
+      setstoreLocation(e.target.value);
       setPhone("91 9923837153");
     }
   };
 
   const handleCreateOrder = () => {
-    createNewOrder(product, address, city, phone, selectAddress);
-    setOrderConfimation(true);
-    setSummaryToggle(!summaryToggle);
-    setTimeout(() => {
-      setOrderConfimation(false);
-    }, 3000);
+    if (storeLocation && city && phone && selectAddress) {
+      createNewOrder(
+        product,
+        storeLocation,
+        city,
+        phone,
+        selectAddress,
+        finalQuantity
+      );
+      setOrderConfimation(true);
+      setSummaryToggle(!summaryToggle);
+      setTimeout(() => {
+        setOrderConfimation(false);
+      }, 3000);
+    }
   };
 
   return (

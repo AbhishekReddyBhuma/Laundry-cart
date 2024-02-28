@@ -7,11 +7,18 @@ const ordersSchema = mongoose.Schema(
     },
     order: { type: Array, require: true },
 
-    storeLoctaion: { type: String },
+    storeLocation: { type: String },
     storeCity: { type: String },
     storePhoneNumber: { type: String },
-    userAddress:{type:String}
+    userAddress: { type: String },
+    status: {
+      type: String,
+      default: "In Processing",
+    },
+    finalQuantity: String,
+    date: { type: Date, default: Date.now() },
   },
+
   { timestamps: true }
 );
 

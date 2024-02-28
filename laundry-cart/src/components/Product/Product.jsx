@@ -130,16 +130,27 @@ const Product = () => {
   };
 
   const handleProceed = () => {
-    setOrders([
-      shirtsOrder,
-      TshirtsOrder,
-      jeansOrder,
-      trousersOrder,
-      boxersOrder,
-      othersOrder,
-      jogersOrder,
-    ]);
-    setSummaryToggle(!summaryToggle);
+    if (
+      shirtsOrder ||
+      TshirtsOrder ||
+      jeansOrder ||
+      trousersOrder ||
+      boxersOrder ||
+      othersOrder ||
+      jogersOrder
+    ) {
+      setOrders([
+        shirtsOrder,
+        TshirtsOrder,
+        jeansOrder,
+        trousersOrder,
+        boxersOrder,
+        othersOrder,
+        jogersOrder,
+      ]);
+      setSummaryToggle(!summaryToggle);
+    }
+
     fetchAllAddresses();
     fetchUserAddresses();
   };

@@ -4,7 +4,7 @@ import Orders from "../components/PastOrders/Orders";
 
 const OrdersPage = () => {
   return (
-    <div>
+    <div style={{ display: "flex" }}>
       <Sidebar />
       <div>
         <Orders />

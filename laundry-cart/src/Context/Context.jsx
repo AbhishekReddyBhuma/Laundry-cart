@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 const ContextApi = createContext();
 
 const Context = ({ children }) => {
-  const [Products, setProducts] = useState([]);
+  const [PastOrders, setPastOrders] = useState([]);
   const [summaryToggle, setSummaryToggle] = useState(false);
   const [OrderConfimation, setOrderConfimation] = useState(false);
 
@@ -59,10 +59,11 @@ const Context = ({ children }) => {
 
   const createNewOrder = async (
     product,
-    address,
+    storeLocation,
     city,
     phone,
-    selectAddress
+    selectAddress,
+    finalQuantity
   ) => {
     const respose = await fetch("http://localhost:8080/orders/create/order", {
       method: "POST",
@@ -72,10 +73,11 @@ const Context = ({ children }) => {
       },
       body: JSON.stringify({
         order: product,
-        storeLocation: address,
+        storeLocation: storeLocation,
         storeCity: city,
         storePhoneNumber: phone,
         userAddress: selectAddress,
+        finalQuantity,
       }),
     });
     // console.log(await respose.json());
@@ -93,21 +95,32 @@ const Context = ({ children }) => {
     const result = await response.json();
     const finalResult = result.pastOrders;
     console.log(finalResult);
-    Products.push(...finalResult);
-    for (let i = 0; i < Products.length; i++) {
-      pastOrders.push(Products[i].order);
-    }
+    setPastOrders([...finalResult]);
+  };
+  console.log(PastOrders);
+
+  const FilterdPastOrder = async (id) => {
+    const response = await fetch(`http://localhost:8080/orders/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Token: localStorage.getItem("token"),
+      },
+    });
+    const result = await response.json();
+    console.log(result);
   };
 
   useEffect(() => {
     fetchUserAddresses();
     fetchAllAddresses();
+    getAllPastOrders();
   }, []);
 
   return (
     <ContextApi.Provider
       value={{
-        Products,
+        PastOrders,
         createNewOrder,
         userAddress,
         addNewAddress,
@@ -117,6 +130,7 @@ const Context = ({ children }) => {
         setOrderConfimation,
         summaryToggle,
         setSummaryToggle,
+        FilterdPastOrder,
       }}
     >
       {children}
