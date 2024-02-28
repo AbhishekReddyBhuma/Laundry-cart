@@ -1,9 +1,10 @@
 .maindiv {
+  z-index: 999;
   padding: 50px 0;
   justify-content: center;
   align-items: center;
   display: flex;
-  position: relative;
+  position: absolute;
   top: 199px;
   left: 529px;
   width: 466px;

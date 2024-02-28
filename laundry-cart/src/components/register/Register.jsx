@@ -121,8 +121,8 @@ const Register = () => {
             name="state"
             onChange={handleAddressChange}
           >
-            {states.map((state) => {
-              return <option value={state}>{state}</option>;
+            {states.map((state,key) => {
+              return <option key={key} value={state}>{state}</option>;
             })}
           </select>
           <input
@@ -153,7 +153,7 @@ const Register = () => {
         </div>
         <div className="terms">
           <input type="checkbox" id="terms" />
-          <label for="terms">
+          <label htmlFor="terms">
             I agree to Terms & Condition receiving marketing and promotional
             materials
           </label>

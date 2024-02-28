@@ -16,7 +16,9 @@ const OrderConfirm = () => {
           <span>You can track the delivery in the "Orders" section.</span>
         </div>
         <div className="btn">
-          <button>Go to orders</button>
+          <button>
+            <a href="/orders">Go to orders</a>
+          </button>
         </div>
       </div>
     </div>

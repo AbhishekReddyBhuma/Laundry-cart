@@ -1,0 +1,46 @@
+.addNewAddress-container {
+    z-index:99;
+    background-color: #FFFFFF;
+    height: 500px;
+    width: 50%;
+    transform: translate(50%, 50%);
+    position: absolute;
+    box-shadow: 4px 4px 4px 4px gray;
+    border-radius: 10px;
+
+    form {
+            height: 80%;
+            width: 80%;
+            top: 62px;
+            left: 71px;
+            align-items: unset;
+
+            button {
+                align-self: center;
+            }
+
+            input {
+                padding: 10px 20px;
+                border: 0px;
+                border-radius: 5px;
+                background: transparent;
+                border-bottom: 1px solid grey;
+            }
+
+            input:focus{
+                outline: none;
+            }
+        }
+
+    .form-cancel {
+        padding-left: 95%;
+        padding-top: 2%;
+        width: 19px;
+        height: 19px;
+        color: lightgrey;
+        background: transparent;
+        font: normal normal 30px/25px Avenir;
+        opacity: 1;
+        cursor: pointer;
+    }
+}

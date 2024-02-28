@@ -8,8 +8,9 @@ const ordersSchema = mongoose.Schema(
     order: { type: Array, require: true },
 
     storeLoctaion: { type: String },
-    storeCite: { type: String },
-    storePhoneNumber: { type: Number },
+    storeCity: { type: String },
+    storePhoneNumber: { type: String },
+    userAddress:{type:String}
   },
   { timestamps: true }
 );

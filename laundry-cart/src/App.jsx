@@ -10,7 +10,7 @@ import ProductsPage from "./Pages/ProductsPage";
 import Protected from "./components/Protected";
 // import Orders from "./components/PastOrders/Orders";
 import OrdersPage from "./Pages/OrdersPage";
-// import OrderConfirm from "./components/orderConfirm/OrderConfirm";
+import AddAddressForm from "./components/AddNewAddress/AddAddressForm";
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
             <Route
               path="/products"
               element={<Protected Components={ProductsPage} />}
-            />
+            ><Route path="/products/api/add" element={<AddAddressForm/>}/></Route>
             <Route path="/orders" element={<OrdersPage />} />
           </Routes>
 

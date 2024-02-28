@@ -22,9 +22,11 @@ const SignIn = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((res) => setToken(res.token));
+      .then((res) => localStorage.setItem("token",res.token))
   };
-  // console.log(Token);
+
+
+  console.log(Token);
 
   function getInputChangeHandler(key) {
     return (e) => {
@@ -40,21 +42,24 @@ const SignIn = () => {
   return (
     <form
       method="POST"
-      action="/signIn"
+      action="/products"
       onSubmit={(e) => {
         e.preventDefault();
         signInApi(credentials);
-        localStorage.setItem("token", Token);
-        Token ? navigation("/products") : navigation("/signin");
+        
+        if(localStorage.getItem("token")){
+          navigation("/products")
+        }
+        
       }}
     >
       <span className="signIn-title">SIGN IN</span>
       <input
         type="text"
         placeholder="Mobile/Email"
-        value={credentials.email || credentials.phoneNumber}
+        // value={credentials.email || credentials.phoneNumber}
         onChange={(e) => {
-          /[0-9]/.test(e.target.value)
+          (!/[a-zA-Z]/.test(e.target.value))
             ? setCredentials((credentials) => {
                 return {
                   ...credentials,

@@ -3,9 +3,10 @@ import { createContext, useContext, useEffect, useState } from "react";
 const ContextApi = createContext();
 
 const Context = ({ children }) => {
-  const pastOrders = [];
-  let Products = [];
-  // const [userAddresses,setUserAddresses] = useState([]);
+  const [Products, setProducts] = useState([]);
+  const [summaryToggle, setSummaryToggle] = useState(false);
+  const [OrderConfimation, setOrderConfimation] = useState(false);
+
   let userAddress = [];
 
   console.log(localStorage.getItem("token"));
@@ -18,9 +19,25 @@ const Context = ({ children }) => {
       },
     });
     const result = await response.json();
-    console.log(result);
+    // console.log(result);
     // setUserAddresses(result)
-    userAddress.push(result);
+    userAddress.push(result.address);
+  };
+
+  const fetchAllAddresses = async () => {
+    const response = await fetch("http://localhost:8080/api/getaddress", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Token: localStorage.getItem("token"),
+      },
+    });
+    const result = await response.json();
+    // setUserAddresses(result)
+    for (let i = 0; i < result.length; i++) {
+      userAddress.push(result[i].address);
+    }
+
     console.log(userAddress);
   };
 
@@ -31,20 +48,31 @@ const Context = ({ children }) => {
         "Content-Type": "application/json",
         Token: localStorage.getItem("token"),
       },
-      body: JSON.stringify(address),
+      body: JSON.stringify({ address }),
     });
     const result = await response.json();
-    console.log(result);
   };
 
-  const createNewOrdrer = async (order) => {
+  const createNewOrder = async (
+    product,
+    address,
+    city,
+    phone,
+    selectAddress
+  ) => {
     const respose = await fetch("http://localhost:8080/orders/create/order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Token: localStorage.getItem("token"),
       },
-      body: JSON.stringify({ order }),
+      body: JSON.stringify({
+        order: product,
+        storeLocation: address,
+        storeCity: city,
+        storePhoneNumber: phone,
+        userAddress: selectAddress,
+      }),
     });
     // console.log(await respose.json());
     const result = await respose.json();
@@ -69,17 +97,22 @@ const Context = ({ children }) => {
 
   useEffect(() => {
     fetchUserAddresses();
-    getAllPastOrders();
+    fetchAllAddresses();
   }, []);
 
   return (
     <ContextApi.Provider
       value={{
         Products,
-        createNewOrdrer,
+        createNewOrder,
         userAddress,
         addNewAddress,
-        pastOrders,
+        fetchAllAddresses,
+        fetchUserAddresses,
+        OrderConfimation,
+        setOrderConfimation,
+        summaryToggle,
+        setSummaryToggle,
       }}
     >
       {children}

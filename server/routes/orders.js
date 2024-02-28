@@ -16,19 +16,21 @@ router.get("/all", async (req, res) => {
 });
 
 router.post("/create/order", async (req, res) => {
-  const { order, storeLoctaion, storeCity, storePhoneNumber } = req.body;
+  console.log(req.body)
+  const { order, storeLoctaion, storeCity, storePhoneNumber ,userAddress} = req.body;
   try {
     const orders = await Orders.create({
       order,
       storeLoctaion,
       storeCity,
       storePhoneNumber,
+      userAddress,
       userId: req.user,
     });
     res.status(200).json(orders);
   } catch (error) {
     res.status(400).json({
-      error: e.message,
+      error: error.message,
     });
   }
 });

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./OrderSummery.css";
 import tick from "./tick.svg";
 import { contextProvider } from "../../Context/Context";
+import AddAddressForm from "../AddNewAddress/AddAddressForm";
+import { useNavigate } from "react-router-dom";
 
 const OrderSummery = ({ orders }) => {
   //console.log(orders.length)
@@ -10,9 +12,17 @@ const OrderSummery = ({ orders }) => {
   const product = [];
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
-  const { userAddress, addNewAddress, createNewOrdrer } = contextProvider();
-
-  //console.log(userAddress);
+  const city = "Hyderabad";
+  const {
+    userAddress,
+    createNewOrder,
+    setOrderConfimation,
+    summaryToggle,
+    setSummaryToggle,
+  } = contextProvider();
+  const navigate = useNavigate();
+  const [selectAddress, setSelectAddress] = useState("");
+  const [checked, setChecked] = useState("");
 
   for (let i = 0; i < orders.length; i++) {
     let temp = [];
@@ -28,6 +38,7 @@ const OrderSummery = ({ orders }) => {
       product.push(itemOrder);
     }
   });
+
   let subTotal = 0;
   let pickUpCharges = 0;
 
@@ -36,18 +47,10 @@ const OrderSummery = ({ orders }) => {
     pickUpCharges += product[i][1] * 6;
   }
 
-  // useEffect("",{
-  //   method:"GET",
-  //   headers:{
-  //     'accept' : "application/json",
-  //     'content-type' : "application/json"
-  // },
-  // body: JSON.stringify(
-  //     data
-  // )}).then(res => res.json())
-  //       .then(setUserAddresses(res.address))
-
-  //console.log(product)
+  const handleAddressChange = (id) => {
+    setSelectAddress(userAddress[id].address);
+    setChecked(id);
+  };
 
   const handlelocationChange = (e) => {
     if (e.target.value === "") {
@@ -68,12 +71,23 @@ const OrderSummery = ({ orders }) => {
     }
   };
 
+  const handleCreateOrder = () => {
+    createNewOrder(product, address, city, phone, selectAddress);
+    setOrderConfimation(true);
+    setSummaryToggle(!summaryToggle);
+  };
+
   return (
     <div className="summaryPage-container">
       <div className="summary-title">
         <p className="title">Summary</p>
       </div>
-      <div className="summary-close">x</div>
+      <div
+        className="summary-close"
+        onClick={() => setSummaryToggle(!summaryToggle)}
+      >
+        x
+      </div>
       <div className="storeDetails-container">
         <select className="store-location" onChange={handlelocationChange}>
           <option id="none"></option>
@@ -103,9 +117,9 @@ const OrderSummery = ({ orders }) => {
             </tr>
           </thead>
           <tbody>
-            {product.map((itemOrder, index) => {
+            {product.map((itemOrder, id) => {
               return (
-                <tr className="item-order" key={index}>
+                <tr className="item-order" key={id}>
                   <td className="Product">{itemOrder[0]}</td>
                   <td className="Wash-type">
                     {itemOrder[2].map((type, i) => {
@@ -146,24 +160,34 @@ const OrderSummery = ({ orders }) => {
 
         <div className="userAddresses">
           <div className="userAddress-label">Address</div>
-          {userAddress.map((data, i) => {
-            return (
-              <div id={i} className="userAddress">
-                <img src={tick} />
-                {data.address}
-              </div>
-            );
-          })}
-          {/* <div id="1" className="userAddress">
-          <img src={tick} />
-        </div>
-        <div id="2" className="userAddress">
-          <img src={tick} />
-        </div> */}
+          <div className="addresses-container">
+            {userAddress.map((data, index) => {
+              console.log(data);
+              return (
+                <div
+                  key={index}
+                  className="userAddress"
+                  onClick={() => handleAddressChange(index)}
+                >
+                  <div className="address-top">
+                    <div className="address-type">{data.title}</div>
+                    {checked === index && <img src={tick} />}
+                  </div>
+                  <div className="user-address">{data.address}</div>
+                </div>
+              );
+            })}
+            <div
+              className="add-address"
+              onClick={() => navigate("/products/api/add")}
+            >
+              ADD NEW
+            </div>
+          </div>
         </div>
       </div>
       <div className="summary-footer">
-        <button className="confirm" onClick={() => createNewOrdrer(product)}>
+        <button className="confirm" onClick={handleCreateOrder}>
           Confirm
         </button>
       </div>

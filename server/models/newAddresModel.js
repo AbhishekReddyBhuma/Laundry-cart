@@ -10,6 +10,7 @@ const newaddressSchema = mongoose.Schema({
     district: String,
     pinCode: String,
     phoneNumber: String,
+    title:String
   },
 });
 const newAddressModel = mongoose.model("newaddres", newaddressSchema);
