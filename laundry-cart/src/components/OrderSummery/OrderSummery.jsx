@@ -19,10 +19,16 @@ const OrderSummery = ({ orders }) => {
     setOrderConfimation,
     summaryToggle,
     setSummaryToggle,
+    fetchUserAddresses,
+    fetchAllAddresses,
   } = contextProvider();
   const navigate = useNavigate();
   const [selectAddress, setSelectAddress] = useState("");
   const [checked, setChecked] = useState("");
+  useEffect(() => {
+    fetchUserAddresses();
+    fetchAllAddresses();
+  }, []);
 
   for (let i = 0; i < orders.length; i++) {
     let temp = [];
@@ -46,7 +52,7 @@ const OrderSummery = ({ orders }) => {
     subTotal += product[i][4];
     pickUpCharges += product[i][1] * 6;
   }
-
+  console.log(userAddress);
   const handleAddressChange = (id) => {
     setSelectAddress(userAddress[id].address);
     setChecked(id);
@@ -75,6 +81,9 @@ const OrderSummery = ({ orders }) => {
     createNewOrder(product, address, city, phone, selectAddress);
     setOrderConfimation(true);
     setSummaryToggle(!summaryToggle);
+    setTimeout(() => {
+      setOrderConfimation(false);
+    }, 3000);
   };
 
   return (
@@ -162,7 +171,9 @@ const OrderSummery = ({ orders }) => {
           <div className="userAddress-label">Address</div>
           <div className="addresses-container">
             {userAddress.map((data, index) => {
-              console.log(data);
+              {
+                console.log(data);
+              }
               return (
                 <div
                   key={index}

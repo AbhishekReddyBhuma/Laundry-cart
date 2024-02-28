@@ -140,8 +140,8 @@ const Product = () => {
       jogersOrder,
     ]);
     setSummaryToggle(!summaryToggle);
-    // fetchAllAddresses();
-    // fetchUserAddresses();
+    fetchAllAddresses();
+    fetchUserAddresses();
   };
   console.log(summaryToggle);
   const handleClick = (e) => {

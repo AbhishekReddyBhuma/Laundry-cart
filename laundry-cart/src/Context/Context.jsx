@@ -10,6 +10,7 @@ const Context = ({ children }) => {
   let userAddress = [];
 
   console.log(localStorage.getItem("token"));
+
   const fetchUserAddresses = async () => {
     const response = await fetch("http://localhost:8080/users/fetchaddress", {
       method: "GET",
@@ -19,9 +20,11 @@ const Context = ({ children }) => {
       },
     });
     const result = await response.json();
-    // console.log(result);
+    console.log(result);
     // setUserAddresses(result)
     userAddress.push(result.address);
+
+    console.log(userAddress);
   };
 
   const fetchAllAddresses = async () => {
@@ -39,6 +42,7 @@ const Context = ({ children }) => {
     }
 
     console.log(userAddress);
+    console.log("hello ");
   };
 
   const addNewAddress = async (address) => {
