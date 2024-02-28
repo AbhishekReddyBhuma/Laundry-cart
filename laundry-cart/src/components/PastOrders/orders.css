@@ -1,0 +1,87 @@
+.pastOrder {
+  min-height: 80%;
+  width: 1293px;
+  margin: 60px 0px 0 20px;
+  .inputHolder {
+    .btn {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 16px;
+      input {
+        padding-bottom: 10px;
+        padding-top: 10px;
+        padding-left: 27px;
+        /* text-align: center; */
+        /* padding: 10px 0px; */
+        border-right: 0;
+        outline: none;
+        border-left: 0;
+        border-top: 0;
+        width: 200px;
+        height: 21px;
+        opacity: 1;
+      }
+      .serchIcon {
+        position: relative;
+        /* top: 119px; */
+        left: 38px;
+        width: 14px px;
+        height: 15px;
+        background: transparent url(img/search.png) 0% 0% no-repeat padding-box;
+        opacity: 1;
+      }
+      button {
+        a {
+          text-decoration: none;
+          color: black;
+        }
+        width: 107px;
+        height: 32px;
+        border: 1px solid #5861ae;
+        border-radius: 4px;
+        opacity: 1;
+      }
+    }
+    height: 50px;
+    display: flex;
+    padding: 0 10px;
+    justify-content: space-between;
+    min-height: 90%;
+    span {
+      width: 179px;
+      height: 25px;
+      text-align: left;
+      font: normal normal 600 18px/48px Open Sans;
+      letter-spacing: 0px;
+      color: #1e2022;
+      text-transform: capitalize;
+      opacity: 1;
+    }
+  }
+  table {
+    border-collapse: collapse;
+    width: 1293px;
+    min-height: 80%;
+    text-align: center;
+    thead {
+      tr {
+        width: 1293px;
+        height: 35px;
+        background: #383737 0% 0% no-repeat padding-box;
+        border-radius: 3px 3px 0px 0px;
+        opacity: 1;
+        color: #ffffff;
+      }
+    }
+  }
+  tbody {
+    tr {
+      width: 1293px;
+      height: 50px;
+      background: #ffffff 0% 0% no-repeat padding-box;
+      border: 1px solid #eaedf0;
+      opacity: 1;
+    }
+  }
+}
