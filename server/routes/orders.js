@@ -5,7 +5,10 @@ const verifyToken = require("../middleware/verifyToken");
 
 router.get("/all", verifyToken, async (req, res) => {
   try {
-    const pastOrders = await Orders.find({ userId: req.user });
+    const pastOrders = await Orders.find({ userId: req.user }).populate(
+      "userId",
+      "-password"
+    );
     res.status(200).json({
       pastOrders,
     });
@@ -16,7 +19,7 @@ router.get("/all", verifyToken, async (req, res) => {
   }
 });
 
-router.get("/:id", verifyToken, async (req, res) => {
+router.get("/orders/:id", verifyToken, async (req, res) => {
   console.log(req.params.id);
   try {
     const filterdOrder = await Orders.findById({ _id: req.params.id });

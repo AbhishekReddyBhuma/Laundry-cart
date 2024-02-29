@@ -59,7 +59,9 @@ router.post("/signin", async (req, res) => {
       } else {
         const data = { user: userExist.id };
         const token = jwt.sign(data, secret_key);
-        res.status(200).json({ message: "login succesfull", token });
+        res
+          .status(200)
+          .json({ message: "login succesfull", token, name: userExist.name });
       }
     }
   } catch (error) {
