@@ -30,6 +30,7 @@ const Alert = ({id}) => {
           setCanceltoggle(!cancelToggle);
           cancelPastOrder(id)
           navigate("/orders");
+          setColor("red");
           }}>Proceed</button>
         </div>
       </div>

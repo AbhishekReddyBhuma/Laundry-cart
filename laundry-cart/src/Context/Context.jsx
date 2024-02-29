@@ -6,10 +6,10 @@ const Context = ({ children }) => {
   const [PastOrders, setPastOrders] = useState([]);
   const [summaryToggle, setSummaryToggle] = useState(false);
   const [pastOrderSummaryToggle,setPastOrderSummaryToggle] = useState(false);
-  const [viewOrder,setViewOrder] = useState({});
+  // const [viewOrder,setViewOrder] = useState({});
   const [OrderConfimation, setOrderConfimation] = useState(false);
   const [cancelToggle,setCanceltoggle] = useState(false);
-
+  const [Id,setId] = useState("");
   let userAddress = [];
 
   // console.log(localStorage.getItem("token"));
@@ -104,19 +104,20 @@ const Context = ({ children }) => {
   };
   // console.log(PastOrders);
 
-  const FilterdPastOrder = async (id) => {
-    // console.log(id)
-    const response = await fetch(`http://localhost:8080/orders/${id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Token: localStorage.getItem("token"),
-      },
-    });
-    const result = await response.json();
-    setViewOrder(result);
-    console.log(viewOrder);
-  };
+  // const FilteredPastOrder = async (id) => {
+  //   // console.log(id)
+  //   const response = await fetch(`http://localhost:8080/orders/${id}`, {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Token: localStorage.getItem("token"),
+  //     },
+  //   });
+  //   const result = await response.json();
+  //   // setViewOrder(result);
+  // };
+
+
 
   const cancelPastOrder = async (id) => {
     // console.log(id)
@@ -139,7 +140,7 @@ const Context = ({ children }) => {
     // fetchUserAddresses();
     // fetchAllAddresses();
     getAllPastOrders();
-    FilterdPastOrder("65df6d6800adcb043ae7c2dd");
+    // FilterdPastOrder("65df6d6800adcb043ae7c2dd");
   }, []);
 
   return (
@@ -155,14 +156,16 @@ const Context = ({ children }) => {
         setOrderConfimation,
         summaryToggle,
         setSummaryToggle,
-        FilterdPastOrder,
+        FilteredPastOrder,
         pastOrderSummaryToggle,
         setPastOrderSummaryToggle,
-        viewOrder,
+        // viewOrder,
         getAllPastOrders,
         cancelToggle,
         setCanceltoggle,
-        cancelPastOrder
+        cancelPastOrder,
+        Id,
+        setId
       }}
     >
       {children}

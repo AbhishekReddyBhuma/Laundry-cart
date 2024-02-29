@@ -7,8 +7,10 @@ import { format } from "date-fns";
 import PastOrderSummary from "./PastOrderSummary";
 import './orders.css'
 import Alert from "../Alert/Alert";
+
 const Orders = () => {
-  const { PastOrders, FilterdPastOrder, getAllPastOrders ,pastOrderSummaryToggle,setPastOrderSummaryToggle, cancelToggle, viewOrder} = contextProvider();
+  const { PastOrders, FilterdPastOrder, getAllPastOrders ,pastOrderSummaryToggle, Id, setId
+    setPastOrderSummaryToggle, cancelToggle} = contextProvider();
   const location = useLocation();
   console.log(location.pathname);
 
@@ -19,6 +21,7 @@ const Orders = () => {
   let finalPrice = 0;
 
   console.log(PastOrders);
+  
   let pOrders = [];
   {
     PastOrders.map((order) => {
@@ -91,7 +94,8 @@ const Orders = () => {
                   <td>{order[8]}</td>
                   <td>
                     <FiEye onClick={() => {
-                      FilterdPastOrder(order[6]);
+                      setId(order[6])
+                      // (FilteredPastOrder(order[6]));
                       setPastOrderSummaryToggle(!pastOrderSummaryToggle)}} />
                   </td>
                 </tr>

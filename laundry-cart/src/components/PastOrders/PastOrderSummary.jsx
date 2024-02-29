@@ -3,12 +3,24 @@ import { contextProvider } from '../../Context/Context';
 import './PastOrderSummary.css';
 import Alert from '../Alert/Alert';
 
-const PastOrderSummary = () => {
-    const {pastOrderSummaryToggle,setPastOrderSummaryToggle,viewOrder,cancelToggle,setCanceltoggle} = contextProvider();
-    console.log(viewOrder)
-    
-    const product = viewOrder.order;
 
+
+const PastOrderSummary = () => {
+    // console.log(props.id)
+    // const id = props.id
+
+    const [viewOrder,setViewOrder] = useState({})
+    const {pastOrderSummaryToggle,setPastOrderSummaryToggle,cancelToggle,setCanceltoggle,FilteredPastOrder,Id} = contextProvider();
+
+    useEffect(() => {
+        FilteredPastOrder(Id)
+            .then(details => {
+                setViewOrder(details)
+            })
+    },[Id])
+console.log(viewOrder)
+    const product = result.order;
+    console.log(product)
     let subTotal = 0;
     let pickUpCharges = 0;
   
@@ -26,14 +38,14 @@ const PastOrderSummary = () => {
                 className="pastOrderSummary-close"
                 onClick={() => setPastOrderSummaryToggle(!pastOrderSummaryToggle)}>x</div>
             <div className="storeDetails-container">
-                <div className="store-location">{viewOrder.storeLocation}</div>
+                <div className="store-location">{result.storeLocation}</div>
                 <div className="store-address">
                     <div className="storeAddress-title">Store Address:</div>
-                    <div className="address">{viewOrder.storeAddress}</div>
+                    <div className="address">{result.storeAddress}</div>
                 </div>
                 <div className="store-phone">
                     <div className="storePhone-title">Phone:</div>
-                    <div className="phone">{viewOrder.storePhoneNumber}</div>
+                    <div className="phone">{result.storePhoneNumber}</div>
                 </div>
             </div>
             <div className="pastOrdersList-title">Order Details</div>
@@ -93,7 +105,7 @@ const PastOrderSummary = () => {
                     <div className="userAddress-label">Address</div>
                     <div className="addresses-container">
                         <div className='userAddress'>
-                            <div className="user-address">{viewOrder.userAddress}</div>
+                            <div className="user-address">{result.userAddress}</div>
                         </div>
                     </div>
                 </div>
