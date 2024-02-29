@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { contextProvider } from "../../Context/Context";
 import { format } from "date-fns";
 import PastOrderSummary from "./PastOrderSummary";
+import './orders.css'
 
 const Orders = () => {
   const {FilterdPastOrder, PastOrders,  pastOrderSummaryToggle, setPastOrderSummaryToggle, viewOrder, setViewOrder} = contextProvider();
