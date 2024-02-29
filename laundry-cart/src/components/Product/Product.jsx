@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { contextProvider } from "../../Context/Context";
 import washingMachine from "./washing-machine.png";
 import ironing from "./ironing.png";
@@ -18,6 +18,8 @@ import { Outlet } from "react-router-dom";
 import OrderConfirm from "../orderConfirm/OrderConfirm";
 
 const Product = () => {
+
+
   const {
     userAddress,
     createNewOrder,
@@ -151,8 +153,8 @@ const Product = () => {
       setSummaryToggle(!summaryToggle);
     }
 
-    fetchAllAddresses();
-    fetchUserAddresses();
+    // fetchAllAddresses();
+    // fetchUserAddresses();
   };
   console.log(summaryToggle);
   const handleClick = (e) => {

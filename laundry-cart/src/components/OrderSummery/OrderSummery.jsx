@@ -14,10 +14,10 @@ const OrderSummery = ({ orders }) => {
   const [phone, setPhone] = useState("");
   const [storeLocation, setstoreLocation] = useState("");
 
-  // useEffect(() => {
-  //   fetchAllAddresses();
-  //   fetchUserAddresses();
-  // },[])
+  useEffect(() => {
+    fetchAllAddresses();
+    fetchUserAddresses();
+  },[location.pathname === "/products"])
 
   const city = "Hyderabad";
   const {

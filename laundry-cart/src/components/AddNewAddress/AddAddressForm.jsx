@@ -28,12 +28,12 @@ const handleChange = (e) => {
               addNewAddress(newAddress);
               navigate("/products");
           }}>
-              <input className='new-address' name='address' onChange={handleChange} />
-              <input className='new-state' name='state' onChange={handleChange} />
-              <input className='new-district' name='district' onChange={handleChange} />
-              <input className='new-pinCode' name='pinCode' onChange={handleChange} />
-              <input className='new-phoneNumber' name='phoneNumber' onChange={handleChange} />
-              <input className='save-as' name='title' onChange={handleChange} />
+              <input className='new-address' name='address' placeholder="Address" onChange={handleChange} />
+              <input className='new-state' name='state' placeholder="State" onChange={handleChange} />
+              <input className='new-district' name='district' placeholder="District" onChange={handleChange} />
+              <input className='new-pinCode' name='pinCode' placeholder="Pin Code" onChange={handleChange} />
+              <input className='new-phoneNumber' name='phoneNumber' placeholder="Phone Number" onChange={handleChange} />
+              <input className='save-as' name='title'  placeholder="Save As" onChange={handleChange} />
               <button type='Submit'>Add</button>
           </form>
       </div>

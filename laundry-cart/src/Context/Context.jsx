@@ -8,6 +8,7 @@ const Context = ({ children }) => {
   const [pastOrderSummaryToggle,setPastOrderSummaryToggle] = useState(false);
   const [viewOrder,setViewOrder] = useState({});
   const [OrderConfimation, setOrderConfimation] = useState(false);
+  const [cancelToggle,setCanceltoggle] = useState(false);
 
   let userAddress = [];
 
@@ -117,20 +118,26 @@ const Context = ({ children }) => {
     console.log(viewOrder);
   };
 
-  // const FilterdPastOrder = (id) => {
-  //   // console.log(id)
-  //   return fetch(`http://localhost:8080/orders/${id}`, {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Token: localStorage.getItem("token"),
-  //     },
-  //   }).then(res => res.json())
-  // };
+  const cancelPastOrder = async (id) => {
+    // console.log(id)
+    const response = await fetch(`http://localhost:8080/orders/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Token: localStorage.getItem("token"),
+      },
+      body:JSON.stringify({
+        status : "Cancelled"
+      })
+    });
+    const result = await response.json();
+    console.log(result);
+    getAllPastOrders();
+  };
 
   useEffect(() => {
-    fetchUserAddresses();
-    fetchAllAddresses();
+    // fetchUserAddresses();
+    // fetchAllAddresses();
     getAllPastOrders();
     FilterdPastOrder("65df6d6800adcb043ae7c2dd");
   }, []);
@@ -151,7 +158,11 @@ const Context = ({ children }) => {
         FilterdPastOrder,
         pastOrderSummaryToggle,
         setPastOrderSummaryToggle,
-        viewOrder
+        viewOrder,
+        getAllPastOrders,
+        cancelToggle,
+        setCanceltoggle,
+        cancelPastOrder
       }}
     >
       {children}

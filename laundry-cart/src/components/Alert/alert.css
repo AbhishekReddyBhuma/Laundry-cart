@@ -1,0 +1,99 @@
+.alert {
+    z-index: 5;
+    display: flex;
+    position: absolute;
+    top: 423px;
+    left: 517px;
+    width: 415px;
+    height: 210px;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border-radius: 2px;
+    opacity: 1;
+    flex-direction: column;
+    .primery {
+      align-items: center;
+      top: 315px;
+      left: 517px;
+      width: 415px;
+      height: 43px;
+      background: #5861ae 0% 0% no-repeat padding-box;
+      border-radius: 2px 2px 1px 1px;
+      opacity: 1;
+      justify-content: space-between;
+      display: flex;
+      .span {
+        top: 327px;
+        left: 539px;
+        width: 34px;
+        height: 19px;
+        text-align: left;
+        font: normal normal 600 14px/19px Avenir;
+        letter-spacing: 0.34px;
+        color: #ffffff;
+        padding-left: 10px;
+      }
+      .icon1 {
+        top: 332px;
+        left: 898px;
+        width: 14px;
+        height: 14px;
+        color: #ffffff;
+        opacity: 1;
+        padding-right: 10px;
+      }
+    }
+    .secondary {
+      height: 160px;
+      align-items: center;
+      display: flex;
+      width: 415px;
+      top: 0px;
+      left: 0px;
+      /* width: 218px; */
+      /* height: 19px; */
+      text-align: center;
+      font: normal normal normal 14px / 19px Avenir;
+      letter-spacing: 0.34px;
+      color: #1b2734;
+      /* width: 210px; */
+      justify-content: space-around;
+      .icon2 {
+        color: red;
+        top: 413px;
+        left: 554px;
+        width: 34px;
+        height: 30px;
+        /* background: #F40808 0% 0% no-repeat padding-box; */
+        opacity: 1;
+      }
+      .secondary-child {
+        display: flex;
+        flex-direction: column;
+  
+        .span2 {
+          top: 0px;
+          left: 0px;
+          width: 218px;
+          /* height: 19px; */
+          text-align: center;
+          font: normal normal normal 14px / 19px Open Sans;
+          letter-spacing: 0.34px;
+          color: #1b2734;
+          width: 210px;
+        }
+        .btn {
+          align-self: center;
+          margin-top: 10px;
+          top: 459px;
+          left: 671px;
+          width: 107px;
+          height: 32px;
+          /* UI Properties */
+          background: #5861ae 0% 0% no-repeat padding-box;
+          border: 1px solid #5861ae;
+          border-radius: 4px;
+          opacity: 1;
+        }
+      }
+    }
+  }
