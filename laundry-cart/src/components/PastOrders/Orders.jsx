@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { contextProvider } from "../../Context/Context";
 import { format } from "date-fns";
-const Orders = () => {
-  const { PastOrders, FilterdPastOrder } = contextProvider();
-  // const [Porders, setPorders] = useState([]);
-  let fialPrice = 0;
+import PastOrderSummary from "./PastOrderSummary";
 
+const Orders = () => {
+  const {FilterdPastOrder, PastOrders,  pastOrderSummaryToggle, setPastOrderSummaryToggle, viewOrder, setViewOrder} = contextProvider();
+  let finalPrice;
   console.log(PastOrders);
   let pOrders = [];
   {
@@ -27,8 +27,6 @@ const Orders = () => {
   }
 
   console.log(...pOrders);
-  let formatedDte = format(new Date(pOrders[1][1]), "dd MMM yyyy, HH:mm");
-  console.log(formatedDte);
 
   return (
     <>
@@ -44,38 +42,43 @@ const Orders = () => {
               <th>Total Items</th>
               <th>Price</th>
               <th>Status</th>
-              <th></th>
               <th>View</th>
             </tr>
           </thead>
           <tbody>
-            {pOrders.map((order, index) => (
+            {pOrders.map((order, index) => {
+              finalPrice=0;
+              return(
               <tr key={index}>
                 <td>{order[6]} </td>
                 <td>{format(new Date(order[1]), "dd MMM yyyy, HH:mm")} </td>
                 <td>{order[2]}</td>
+                <td>{order[5]}</td>
                 <td>{order[3]}</td>
-                <td>{order[4]}</td>
                 <td>{order[7]}</td>
-                <td>{order[0][4]}</td>
                 <td>
                   {order[0].map((price, index) => {
-                    fialPrice += price[4];
+                    finalPrice += parseInt(price[4]);
                     if (order[0].length - 1 === index) {
-                      return fialPrice;
+                      return finalPrice;
                     }
                   })}
                 </td>
                 <td>{order[8]}</td>
                 <td>
-                  <button onClick={() => FilterdPastOrder(order[6])}>
+                  <button onClick={() => {
+                    console.log(order[6])
+                    FilterdPastOrder(order[6])
+                    setPastOrderSummaryToggle(!pastOrderSummaryToggle);
+                    }}>
                     view
                   </button>
                 </td>
               </tr>
-            ))}
+            )})}
           </tbody>
         </table>
+        {pastOrderSummaryToggle && <PastOrderSummary/>}
       </div>
     </>
   );

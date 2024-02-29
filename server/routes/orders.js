@@ -17,8 +17,9 @@ router.get("/all", verifyToken, async (req, res) => {
 });
 
 router.get("/:id", verifyToken, async (req, res) => {
+  console.log(req.params.id);
   try {
-    const filterdOrder = await Orders.findOne({ _id: req.params.id });
+    const filterdOrder = await Orders.findById({ _id: req.params.id });
     res.status(200).json(filterdOrder);
   } catch (e) {
     res.status(400).json({
@@ -48,6 +49,7 @@ router.post("/create/order", async (req, res) => {
   const {
     order,
     storeLocation,
+    storeAddress,
     storeCity,
     storePhoneNumber,
     userAddress,
@@ -57,6 +59,7 @@ router.post("/create/order", async (req, res) => {
     const orders = await Orders.create({
       order,
       storeLocation,
+      storeAddress,
       storeCity,
       storePhoneNumber,
       userAddress,

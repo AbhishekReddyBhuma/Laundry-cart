@@ -8,6 +8,7 @@ const ordersSchema = mongoose.Schema(
     order: { type: Array, require: true },
 
     storeLocation: { type: String },
+    storeAddress:{ type: String },
     storeCity: { type: String },
     storePhoneNumber: { type: String },
     userAddress: { type: String },

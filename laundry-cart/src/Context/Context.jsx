@@ -5,11 +5,13 @@ const ContextApi = createContext();
 const Context = ({ children }) => {
   const [PastOrders, setPastOrders] = useState([]);
   const [summaryToggle, setSummaryToggle] = useState(false);
+  const [pastOrderSummaryToggle,setPastOrderSummaryToggle] = useState(false);
+  const [viewOrder,setViewOrder] = useState({});
   const [OrderConfimation, setOrderConfimation] = useState(false);
 
   let userAddress = [];
 
-  console.log(localStorage.getItem("token"));
+  // console.log(localStorage.getItem("token"));
 
   const fetchUserAddresses = async () => {
     const response = await fetch("http://localhost:8080/users/fetchaddress", {
@@ -24,7 +26,7 @@ const Context = ({ children }) => {
     // setUserAddresses(result)
     userAddress.push(result.address);
 
-    console.log(userAddress);
+    // console.log(userAddress);
   };
 
   const fetchAllAddresses = async () => {
@@ -41,8 +43,8 @@ const Context = ({ children }) => {
       userAddress.push(result[i].address);
     }
 
-    console.log(userAddress);
-    console.log("hello ");
+    // console.log(userAddress);
+    // console.log("hello ");
   };
 
   const addNewAddress = async (address) => {
@@ -60,6 +62,7 @@ const Context = ({ children }) => {
   const createNewOrder = async (
     product,
     storeLocation,
+    address,
     city,
     phone,
     selectAddress,
@@ -74,6 +77,7 @@ const Context = ({ children }) => {
       body: JSON.stringify({
         order: product,
         storeLocation: storeLocation,
+        storeAddress:address,
         storeCity: city,
         storePhoneNumber: phone,
         userAddress: selectAddress,
@@ -82,7 +86,7 @@ const Context = ({ children }) => {
     });
     // console.log(await respose.json());
     const result = await respose.json();
-    console.log(result);
+    // console.log(result);
   };
   const getAllPastOrders = async () => {
     const response = await fetch("http://localhost:8080/orders/all", {
@@ -97,9 +101,10 @@ const Context = ({ children }) => {
     console.log(finalResult);
     setPastOrders([...finalResult]);
   };
-  console.log(PastOrders);
+  // console.log(PastOrders);
 
   const FilterdPastOrder = async (id) => {
+    // console.log(id)
     const response = await fetch(`http://localhost:8080/orders/${id}`, {
       method: "GET",
       headers: {
@@ -108,13 +113,26 @@ const Context = ({ children }) => {
       },
     });
     const result = await response.json();
-    console.log(result);
+    setViewOrder(result);
+    console.log(viewOrder);
   };
+
+  // const FilterdPastOrder = (id) => {
+  //   // console.log(id)
+  //   return fetch(`http://localhost:8080/orders/${id}`, {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Token: localStorage.getItem("token"),
+  //     },
+  //   }).then(res => res.json())
+  // };
 
   useEffect(() => {
     fetchUserAddresses();
     fetchAllAddresses();
     getAllPastOrders();
+    FilterdPastOrder("65df6d6800adcb043ae7c2dd");
   }, []);
 
   return (
@@ -131,6 +149,9 @@ const Context = ({ children }) => {
         summaryToggle,
         setSummaryToggle,
         FilterdPastOrder,
+        pastOrderSummaryToggle,
+        setPastOrderSummaryToggle,
+        viewOrder
       }}
     >
       {children}

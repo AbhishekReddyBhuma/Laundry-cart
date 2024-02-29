@@ -14,6 +14,11 @@ const OrderSummery = ({ orders }) => {
   const [phone, setPhone] = useState("");
   const [storeLocation, setstoreLocation] = useState("");
 
+  // useEffect(() => {
+  //   fetchAllAddresses();
+  //   fetchUserAddresses();
+  // },[])
+
   const city = "Hyderabad";
   const {
     userAddress,
@@ -27,10 +32,7 @@ const OrderSummery = ({ orders }) => {
   const navigate = useNavigate();
   const [selectAddress, setSelectAddress] = useState("");
   const [checked, setChecked] = useState("");
-  useEffect(() => {
-    fetchUserAddresses();
-    fetchAllAddresses();
-  }, []);
+
 
   for (let i = 0; i < orders.length; i++) {
     let temp = [];
@@ -89,6 +91,7 @@ const OrderSummery = ({ orders }) => {
       createNewOrder(
         product,
         storeLocation,
+        address,
         city,
         phone,
         selectAddress,

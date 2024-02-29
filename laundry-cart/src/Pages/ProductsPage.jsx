@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import Sidebar from "../components/Sidebar/Sidebar";
 import search from "./search.png";
 import Product from "../components/Product/Product";
+import { contextProvider } from "../Context/Context";
 
 const ProductsPage = () => {
+
+  const  {fetchAllAddresses,fetchUserAddresses} = contextProvider();
   const [display, setdisplay] = useState(true);
   const handleDisplay = () => {
     setdisplay(false);
   };
-
+  useEffect(() => {
+    fetchUserAddresses();
+    fetchAllAddresses();
+  }, []);
   return (
     <div className="products">
       <Sidebar />
