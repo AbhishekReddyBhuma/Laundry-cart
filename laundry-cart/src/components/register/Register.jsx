@@ -66,7 +66,7 @@ const Register = () => {
       body: JSON.stringify({ data, address: address }),
     })
       .then((res) => res.json())
-      .then((res) => console.log(res.message));
+      .then((res) => res);
   };
 
   function getInputChangeHandler(key) {
@@ -121,8 +121,12 @@ const Register = () => {
             name="state"
             onChange={handleAddressChange}
           >
-            {states.map((state,key) => {
-              return <option key={key} value={state}>{state}</option>;
+            {states.map((state, key) => {
+              return (
+                <option key={key} value={state}>
+                  {state}
+                </option>
+              );
             })}
           </select>
           <input

@@ -27,7 +27,6 @@ const Home = () => {
                 <button
                   className="register"
                   onClick={(e) => {
-                    console.log("register clicked");
                     setRegisterToggle(true);
                     setRedesign([
                       "brand-name-small",

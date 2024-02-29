@@ -5,14 +5,13 @@ const ContextApi = createContext();
 const Context = ({ children }) => {
   const [PastOrders, setPastOrders] = useState([]);
   const [summaryToggle, setSummaryToggle] = useState(false);
-  const [pastOrderSummaryToggle,setPastOrderSummaryToggle] = useState(false);
-  const [viewOrder,setViewOrder] = useState({});
+  const [pastOrderSummaryToggle, setPastOrderSummaryToggle] = useState(false);
+  const [viewOrder, setViewOrder] = useState({});
   const [OrderConfimation, setOrderConfimation] = useState(false);
-  const [cancelToggle,setCanceltoggle] = useState(false);
+  const [cancelToggle, setCanceltoggle] = useState(false);
+  const [userName, setUserName] = useState("");
 
   let userAddress = [];
-
-  // console.log(localStorage.getItem("token"));
 
   const fetchUserAddresses = async () => {
     const response = await fetch("http://localhost:8080/users/fetchaddress", {
@@ -23,11 +22,9 @@ const Context = ({ children }) => {
       },
     });
     const result = await response.json();
-    console.log(result);
+
     // setUserAddresses(result)
     userAddress.push(result.address);
-
-    // console.log(userAddress);
   };
 
   const fetchAllAddresses = async () => {
@@ -43,9 +40,6 @@ const Context = ({ children }) => {
     for (let i = 0; i < result.length; i++) {
       userAddress.push(result[i].address);
     }
-
-    // console.log(userAddress);
-    // console.log("hello ");
   };
 
   const addNewAddress = async (address) => {
@@ -78,16 +72,15 @@ const Context = ({ children }) => {
       body: JSON.stringify({
         order: product,
         storeLocation: storeLocation,
-        storeAddress:address,
+        storeAddress: address,
         storeCity: city,
         storePhoneNumber: phone,
         userAddress: selectAddress,
         finalQuantity,
       }),
     });
-    // console.log(await respose.json());
+
     const result = await respose.json();
-    // console.log(result);
   };
   const getAllPastOrders = async () => {
     const response = await fetch("http://localhost:8080/orders/all", {
@@ -98,15 +91,14 @@ const Context = ({ children }) => {
       },
     });
     const result = await response.json();
+
     const finalResult = result.pastOrders;
-    console.log(finalResult);
+
     setPastOrders([...finalResult]);
   };
-  // console.log(PastOrders);
 
   const FilterdPastOrder = async (id) => {
-    // console.log(id)
-    const response = await fetch(`http://localhost:8080/orders/${id}`, {
+    const response = await fetch(`http://localhost:8080/orders/orders/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -115,23 +107,21 @@ const Context = ({ children }) => {
     });
     const result = await response.json();
     setViewOrder(result);
-    console.log(viewOrder);
   };
 
   const cancelPastOrder = async (id) => {
-    // console.log(id)
     const response = await fetch(`http://localhost:8080/orders/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Token: localStorage.getItem("token"),
       },
-      body:JSON.stringify({
-        status : "Cancelled"
-      })
+      body: JSON.stringify({
+        status: "Cancelled",
+      }),
     });
     const result = await response.json();
-    console.log(result);
+
     getAllPastOrders();
   };
 
@@ -139,12 +129,14 @@ const Context = ({ children }) => {
     // fetchUserAddresses();
     // fetchAllAddresses();
     getAllPastOrders();
-    FilterdPastOrder("65df6d6800adcb043ae7c2dd");
+    // FilterdPastOrder("65e062a583d25daac0522642");
   }, []);
 
   return (
     <ContextApi.Provider
       value={{
+        userName,
+        setUserName,
         PastOrders,
         createNewOrder,
         userAddress,
@@ -159,10 +151,11 @@ const Context = ({ children }) => {
         pastOrderSummaryToggle,
         setPastOrderSummaryToggle,
         viewOrder,
+        setViewOrder,
         getAllPastOrders,
         cancelToggle,
         setCanceltoggle,
-        cancelPastOrder
+        cancelPastOrder,
       }}
     >
       {children}

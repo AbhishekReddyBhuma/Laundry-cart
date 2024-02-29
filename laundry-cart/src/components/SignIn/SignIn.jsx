@@ -2,31 +2,35 @@ import React, { useState } from "react";
 import "./SignIn.css";
 import padlock from "./padlock.svg";
 import { useNavigate } from "react-router-dom";
-
+import { contextProvider } from "../../Context/Context";
 const SignIn = () => {
   const [credentials, setCredentials] = useState({
     email: "",
     phoneNumber: "",
     password: "",
   });
+  const { getAllPastOrders, PastOrders, userName, setUserName } =
+    contextProvider();
+
   const navigation = useNavigate();
   const [Token, setToken] = useState("");
 
-  const signInApi = (data) => {
-    return fetch("http://localhost:8080/users/signin", {
+  const signInApi = async (data) => {
+    const response = await fetch("http://localhost:8080/users/signin", {
       method: "POST",
       headers: {
         accept: "application/json",
         "content-type": "application/json",
       },
       body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((res) => localStorage.setItem("token",res.token))
+    });
+    const result = await response.json();
+    const token = result.token;
+    localStorage.setItem("token", token);
+    if (token) {
+      navigation("/products");
+    }
   };
-
-
-  console.log(Token);
 
   function getInputChangeHandler(key) {
     return (e) => {
@@ -42,15 +46,14 @@ const SignIn = () => {
   return (
     <form
       method="POST"
-      action="/products"
+      action="/orders"
       onSubmit={(e) => {
         e.preventDefault();
         signInApi(credentials);
-        
-        if(localStorage.getItem("token")){
-          navigation("/products")
+        navigation("/products");
+        if (localStorage.getItem("token")) {
+          navigation("/products");
         }
-        
       }}
     >
       <span className="signIn-title">SIGN IN</span>
@@ -59,7 +62,7 @@ const SignIn = () => {
         placeholder="Mobile/Email"
         // value={credentials.email || credentials.phoneNumber}
         onChange={(e) => {
-          (!/[a-zA-Z]/.test(e.target.value))
+          !/[a-zA-Z]/.test(e.target.value)
             ? setCredentials((credentials) => {
                 return {
                   ...credentials,

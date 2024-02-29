@@ -7,7 +7,6 @@ import AddAddressForm from "../AddNewAddress/AddAddressForm";
 import { useNavigate } from "react-router-dom";
 
 const OrderSummery = ({ orders }) => {
-  //console.log(orders.length)
   const products = [];
   const product = [];
   const [address, setAddress] = useState("");
@@ -17,7 +16,7 @@ const OrderSummery = ({ orders }) => {
   useEffect(() => {
     fetchAllAddresses();
     fetchUserAddresses();
-  },[location.pathname === "/products"])
+  }, [location.pathname === "/products"]);
 
   const city = "Hyderabad";
   const {
@@ -32,7 +31,6 @@ const OrderSummery = ({ orders }) => {
   const navigate = useNavigate();
   const [selectAddress, setSelectAddress] = useState("");
   const [checked, setChecked] = useState("");
-
 
   for (let i = 0; i < orders.length; i++) {
     let temp = [];
@@ -57,7 +55,7 @@ const OrderSummery = ({ orders }) => {
     pickUpCharges += product[i][1] * 6;
   }
   let finalQuantity = pickUpCharges / 6;
-  console.log(userAddress);
+
   const handleAddressChange = (id) => {
     setSelectAddress(userAddress[id].address);
     setChecked(id);
@@ -190,9 +188,6 @@ const OrderSummery = ({ orders }) => {
           <div className="userAddress-label">Address</div>
           <div className="addresses-container">
             {userAddress.map((data, index) => {
-              {
-                console.log(data);
-              }
               return (
                 <div
                   key={index}

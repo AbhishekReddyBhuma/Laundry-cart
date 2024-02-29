@@ -5,14 +5,31 @@ import { Link, useLocation } from "react-router-dom";
 import { contextProvider } from "../../Context/Context";
 import { format } from "date-fns";
 import PastOrderSummary from "./PastOrderSummary";
-import './orders.css'
+import "./orders.css";
 import Alert from "../Alert/Alert";
+
 const Orders = () => {
-  const { PastOrders, FilterdPastOrder, getAllPastOrders ,pastOrderSummaryToggle,setPastOrderSummaryToggle, cancelToggle, viewOrder} = contextProvider();
+  // const [viewOrders, , setviewOrders] = useState({});
+  // const [filterOrder, setfilterOrder] = useState({});
+  let filterOrder = [];
+
+  const {
+    PastOrders,
+    FilterdPastOrder,
+    getAllPastOrders,
+    pastOrderSummaryToggle,
+    setPastOrderSummaryToggle,
+    cancelToggle,
+    viewOrder,
+    setViewOrder,
+  } = contextProvider();
   const location = useLocation();
   console.log(location.pathname);
-
+  console.log(PastOrders);
   // const [Porders, setPorders] = useState([]);
+
+  console.log(viewOrder);
+
   useEffect(() => {
     getAllPastOrders();
   }, [location.pathname === "/orders"]);
@@ -38,7 +55,21 @@ const Orders = () => {
     });
   }
 
-  console.log(...pOrders);
+  const handleEye = async (id) => {
+    const response = await fetch(`http://localhost:8080/orders/orders/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Token: localStorage.getItem("token"),
+      },
+    });
+    const result = await response.json();
+    filterOrder.push(result);
+    // console.log(result);
+    setViewOrder(filterOrder[0]);
+    console.log(filterOrder);
+    setPastOrderSummaryToggle(!pastOrderSummaryToggle);
+  };
 
   return (
     <>
@@ -90,17 +121,15 @@ const Orders = () => {
                   </td>
                   <td>{order[8]}</td>
                   <td>
-                    <FiEye onClick={() => {
-                      FilterdPastOrder(order[6]);
-                      setPastOrderSummaryToggle(!pastOrderSummaryToggle)}} />
+                    <FiEye onClick={() => handleEye(order[6])} />
                   </td>
                 </tr>
               );
             })}
           </tbody>
         </table>
-        {pastOrderSummaryToggle && <PastOrderSummary/>}
-        {cancelToggle && <Alert id ={viewOrder._id}/>}
+        {pastOrderSummaryToggle && <PastOrderSummary filter={filterOrder} />}
+        {cancelToggle && <Alert id={viewOrder._id} />}
         {cancelToggle && <div className="pos-hidden"></div>}
       </div>
     </>
