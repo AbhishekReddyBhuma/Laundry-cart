@@ -28,7 +28,7 @@
         left: 38px;
         width: 14px px;
         height: 15px;
-        background: transparent url(img/search.png) 0% 0% no-repeat padding-box;
+        /* background: transparent url(img/search.png) 0% 0% no-repeat padding-box; */
         opacity: 1;
       }
       button {

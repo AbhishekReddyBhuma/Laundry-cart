@@ -57,7 +57,7 @@ const Register = () => {
   });
 
   const registerApi = (data, address) => {
-    return fetch(`${windows.location.origin}/users/register`, {
+    return fetch("https://laundry-cart-backend-jg3q.onrender.com/users/register", {
       method: "POST",
       headers: {
         accept: "application/json",
@@ -66,7 +66,7 @@ const Register = () => {
       body: JSON.stringify({ data, address: address }),
     })
       .then((res) => res.json())
-      .then((res) => res);
+      .then((res) => alert(res.message));
   };
 
   function getInputChangeHandler(key) {

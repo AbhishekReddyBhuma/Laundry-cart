@@ -43,7 +43,7 @@ form {
     width: 15px;
     height: 21px;
     /* UI Properties */
-    background: transparent url('img/padlock.png') 0% 0% no-repeat padding-box;
+    /* background: transparent url('img/padlock.png') 0% 0% no-repeat padding-box; */
     opacity: 1;
 }
 

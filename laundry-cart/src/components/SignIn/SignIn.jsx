@@ -16,7 +16,7 @@ const SignIn = () => {
   const [Token, setToken] = useState("");
 
   const signInApi = async (data) => {
-    const response = await fetch(`${windows.location.origin}/users/signin`, {
+    const response = await fetch("https://laundry-cart-backend-jg3q.onrender.com/users/signin", {
       method: "POST",
       headers: {
         accept: "application/json",
@@ -25,11 +25,16 @@ const SignIn = () => {
       body: JSON.stringify(data),
     });
     const result = await response.json();
-    const token = result.token;
-    localStorage.setItem("token", token);
-    if (token) {
+    alert(result.message)
+    if(result.token){
+      const token = result.token;
+      localStorage.setItem("token", token);
       navigation("/products");
     }
+    
+    // if (token) {
+    //   navigation("/products");
+    // }
   };
 
   function getInputChangeHandler(key) {

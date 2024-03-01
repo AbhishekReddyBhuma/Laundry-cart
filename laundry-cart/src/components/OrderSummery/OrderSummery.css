@@ -360,7 +360,7 @@
     height: 17px;
     padding-top: 7px;
     padding-left: 156px;
-    background: transparent url(/tick.svg) 0% 0% no-repeat padding-box;
+    /* background: transparent url(/tick.svg) 0% 0% no-repeat padding-box; */
 }
 
 .user-address {

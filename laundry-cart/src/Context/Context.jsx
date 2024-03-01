@@ -14,7 +14,7 @@ const Context = ({ children }) => {
   let userAddress = [];
 
   const fetchUserAddresses = async () => {
-    const response = await fetch(`${windows.location.origin}/users/fetchaddress`, {
+    const response = await fetch("https://laundry-cart-backend-jg3q.onrender.com/users/fetchaddress", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +28,7 @@ const Context = ({ children }) => {
   };
 
   const fetchAllAddresses = async () => {
-    const response = await fetch(`${windows.location.origin}/api/getaddress`, {
+    const response = await fetch("https://laundry-cart-backend-jg3q.onrender.com/api/getaddress", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const Context = ({ children }) => {
   };
 
   const addNewAddress = async (address) => {
-    const response = await fetch(`${windows.location.origin}/api/add`, {
+    const response = await fetch("https://laundry-cart-backend-jg3q.onrender.com/api/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -63,7 +63,7 @@ const Context = ({ children }) => {
     selectAddress,
     finalQuantity
   ) => {
-    const respose = await fetch(`${windows.location.origin}/orders/create/order`, {
+    const respose = await fetch("https://laundry-cart-backend-jg3q.onrender.com/orders/create/order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -83,7 +83,7 @@ const Context = ({ children }) => {
     const result = await respose.json();
   };
   const getAllPastOrders = async () => {
-    const response = await fetch(`${windows.location.origin}/orders/all`, {
+    const response = await fetch("https://laundry-cart-backend-jg3q.onrender.com/orders/all", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -98,7 +98,7 @@ const Context = ({ children }) => {
   };
 
   const FilterdPastOrder = async (id) => {
-    const response = await fetch(`${windows.location.origin}/orders/orders/${id}`, {
+    const response = await fetch(`https://laundry-cart-backend-jg3q.onrender.com/orders/orders/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -110,7 +110,7 @@ const Context = ({ children }) => {
   };
 
   const cancelPastOrder = async (id) => {
-    const response = await fetch(`${windows.location.origin}/orders/${id}`, {
+    const response = await fetch(`https://laundry-cart-backend-jg3q.onrender.com/orders/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

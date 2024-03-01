@@ -57,7 +57,7 @@ const Orders = () => {
   }
 
   const handleEye = async (id) => {
-    const response = await fetch(`${windows.location.origin}/orders/orders/${id}`, {
+    const response = await fetch(`https://laundry-cart-backend-jg3q.onrender.com/orders/orders/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

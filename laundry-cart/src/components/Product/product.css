@@ -84,8 +84,8 @@
   left: 131px; */
   width: 45px;
   height: 43px;
-  background: transparent url("img/Rectangle 737.png") 0% 0% no-repeat
-    padding-box;
+  /* background: transparent url("img/Rectangle 737.png") 0% 0% no-repeat
+    padding-box; */
   border-radius: 2px;
   opacity: 1;
 }
